@@ -13,8 +13,8 @@
 ***Create new private repo on GitHub****<br>
 <a href="https://github.com/">Link to GitHub</a><br>
 
-***Result of task1.1****<br>
-**1.**Created 'develop' branch.
+***Result of task1.1***<br>
+**1.Created 'develop' branch.**<br>
 **2.**Created index.html empty file in branch 'develop'.
 **3.**Created branch with name “images”. Add images folder with 3 images inside it.
 **4.**Added images source to index.html.
