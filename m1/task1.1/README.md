@@ -14,12 +14,16 @@
 <a href="https://github.com/">Link to GitHub</a><br>
 
 ***Result of task1.1***<br>
-**1.Created 'develop' branch.**<br>
-**2.**Created index.html empty file in branch 'develop'.
-**3.**Created branch with name “images”. Add images folder with 3 images inside it.
-**4.**Added images source to index.html.
-**5.**Created branch with name “styles”.
-**6.**Added styles folder with styles source inside it and was changed file index.html.
-**7.**Merged two branches into develop using git merge command.(merge “images” into “develop” and merge “styles” into “develop”).
-**8.**Merge develop into master
+**1. Created 'develop' branch.**<br>
+**2. Created index.html empty file in branch 'develop'.** <br>
+**3. Created branch with name “images”. Add images folder with 3 images inside it.** <br>
+**4. Added images source to index.html.** <br>
+**5. Created branch with name “styles”.** <br>
+**6. Added styles folder with styles source inside it and was changed file index.html.** <br>
+**7. Merged two branches into develop using git merge command.(merge “images” into “develop” and merge “styles” into “develop”).** <br>
+**8. Merge develop into master.** <br>
+**9. Was pushed all changes with all branches to origin on GitHub.** <br>
+**10. The command “git reflog“ execution result is saved in a file “task1.1_GIT.txt”** <br> 
 
+***What is DevOps***
+DevOps is a combination of developers and operations practices and tools. It's like the methodology that an engineer works by. The main goal of DevOps is to make life easier for programmers and speed up the process of delivering code to production, while improving the quality of product development.
