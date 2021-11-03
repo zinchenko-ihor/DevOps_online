@@ -8,7 +8,7 @@
 <h4 align="left"> INSTALL </h4>
 
 ***Install GIT on workstation*** <br>
-<a href="https://git-scm.com/book/ru/v2/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-Git"> Install quid for GIT </a> <br>
+<a href="https://git-scm.com/book/ru/v2/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-Git"> Install guide for GIT </a> <br>
 
 ***Create new private repo on GitHub****<br>
 <a href="https://github.com/">Link to GitHub</a><br>
@@ -25,5 +25,5 @@
 **9. Was pushed all changes with all branches to origin on GitHub.** <br>
 **10. The command “git reflog“ execution result is saved in a file “task1.1_GIT.txt”** <br> 
 
-***What is DevOps***
+***What is DevOps*** <br>
 DevOps is a combination of developers and operations practices and tools. It's like the methodology that an engineer works by. The main goal of DevOps is to make life easier for programmers and speed up the process of delivering code to production, while improving the quality of product development.
