@@ -14,8 +14,8 @@
 <a href="https://github.com/">Link to GitHub</a><br>
 
 ***Result of task1.1***<br>
-**1. Created 'develop' branch.**<br>
-**2. Created index.html empty file in branch 'develop'.** <br>
+**1. Created "develop" branch.**<br>
+**2. Created index.html empty file in branch "develop".** <br>
 **3. Created branch with name “images”. Add images folder with 3 images inside it.** <br>
 **4. Added images source to index.html.** <br>
 **5. Created branch with name “styles”.** <br>
