@@ -1,0 +1,17 @@
+737a4f5 HEAD@{0}: merge develop: Fast-forward (no commit created; -m option ignored)
+3765eac HEAD@{1}: checkout: moving from develop to master
+737a4f5 HEAD@{2}: merge styles: Merge made by the 'recursive' strategy.
+539a2e9 HEAD@{3}: merge images: Merge made by the 'recursive' strategy.
+f3e5f94 HEAD@{4}: reset: moving to HEAD
+f3e5f94 HEAD@{5}: commit: Add styles link to index.html
+8f1c03d HEAD@{6}: checkout: moving from styles to develop
+e51258a HEAD@{7}: commit: Add styles on branch styles
+b4248dc HEAD@{8}: checkout: moving from images to styles
+b4248dc HEAD@{9}: checkout: moving from develop to images
+8f1c03d HEAD@{10}: commit: Edit index.html
+0ae5361 HEAD@{11}: checkout: moving from images to develop
+b4248dc HEAD@{12}: commit: Add folder images and files on branch images
+0ae5361 HEAD@{13}: checkout: moving from develop to images
+0ae5361 HEAD@{14}: commit: Add index.html on branch develop
+3765eac HEAD@{15}: checkout: moving from master to develop
+3765eac HEAD@{16}: commit (initial): Add readme.txt
