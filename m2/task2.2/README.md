@@ -32,22 +32,22 @@
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Snapshot.png">
 
 **5. Launch the third instance from backup.** <br>
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Image_from_Backup.png">
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Connect_to_the_Backup.png">
+<li><img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Image_from_Backup.png">
+<li><img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Connect_to_the_Backup.png">
 
-**5. Work with Volume of EC2** <br>
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html"> Instruction for create Volume on EC2 </a> <br>
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html"> Instruction for attach Volume on EC2 </a> <br>
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html"> Instruction for detach Volume on EC2 </a> <br>
+**6. Work with Volume of EC2.** <br>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html"> Instruction for create Volume on EC2 </a> <br>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html"> Instruction for attach Volume on EC2 </a> <br>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html"> Instruction for detach Volume on EC2 </a> <br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Attached_New_Volume.png">
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Detached.png">
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/mnt_disk_D.png">
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Remap_disk_D_to_new_VM.png">
 
-**6. Work with Amazon S3** <br>
-<a href="https://aws.amazon.com/ru/getting-started/hands-on/backup-files-to-amazon-s3/"> Instruction for Store and Retrieve a File </a> <br>
-<a href="https://aws.amazon.com/ru/getting-started/hands-on/backup-to-s3-cli/?nc1=h_ls"> Instruction for Batch upload files to the cloud to Amazon S3 using the AWS CLI </a><br>
+**7. Work with Amazon S3** <br>
+<li><a href="https://aws.amazon.com/ru/getting-started/hands-on/backup-files-to-amazon-s3/"> Instruction for Store and Retrieve a File </a> <br>
+<li><a href="https://aws.amazon.com/ru/getting-started/hands-on/backup-to-s3-cli/?nc1=h_ls"> Instruction for Batch upload files to the cloud to Amazon S3 using the AWS CLI </a><br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Create_Bucket.png">
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Create_Admin.png">
