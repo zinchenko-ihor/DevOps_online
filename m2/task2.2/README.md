@@ -1,5 +1,5 @@
 <h4 align="center">
-  <img alt="AWS" src="https://www.softwareone.com/-/media/global/logos/aws-logo-teaser.png?rev=7faf0711601f44be8c333218fb2de560&sc_lang=uk-ua&hash=4CF9A89A30B904103D48EEBC2A84C607">
+  <img alt="AWS" src="https://www.clipartmax.com/png/small/195-1955059_what-is-aws-cloud-practitioner-certification-amazon-web-services-icon.png">
 </h4>
 <h2 align="center"> Working with AWS </h2>
 ***Register to AWS*** <br>
