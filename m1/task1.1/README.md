@@ -27,3 +27,5 @@
 
 ***What is DevOps*** <br>
 DevOps is a combination of developers and operations practices and tools. It's like the methodology that an engineer works by. The main goal of DevOps is to make life easier for programmers and speed up the process of delivering code to production, while improving the quality of product development.
+
+<img alt="Git" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m1/task1.1/images/GIT.png">
