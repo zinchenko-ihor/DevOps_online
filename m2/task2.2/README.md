@@ -9,6 +9,7 @@
 
 ***Work with Amazon Lightsail*** <br>
 **1. Create VM with Amazon Lightsail ** <br>
+
 <img alt= "" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Create%20VM_Lightsail.png">
 
 
