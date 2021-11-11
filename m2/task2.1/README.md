@@ -3,7 +3,7 @@
 </h4>
 <h2 align="center"> Working with VirtualBox </h2>
 
-**Work with VirtualBox*** <br>
+***Work with VirtualBox*** <br>
 <a href="https://www.virtualbox.org/manual/ch01.html"> Instruction "How to use VirtualBox"  </a> <br>
 
 ***Result of task2.1*** <br>
