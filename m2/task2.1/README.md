@@ -57,15 +57,23 @@
 **12. WORK WITH VAGRANT.** <br>
 <a href="http://czerasz.com/2015/01/06/vagrant-workflows/"> Vagrant Workflows </a> <br>
 
-**13. Run the powershell. Create a folder "student name" (in English). Next, go to the folder. Initialize the environment with the default Vagrant box:
+**13. Run the powershell. Create a folder "student name" (in English). Next, go to the folder. Initialize the environment with the default Vagrant box:**
  ```
- init hashicorp/precise64** 
+ init hashicorp/precise64 
  ```
-<br>
+**Run vagrant up and watch for messages during VM boot and startup.** <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_17.png"> <br>
 
+**14. Connect to the VM using the program PuTTY (can be downloaded from [<a href="https://www.virtualbox.org/manual/"> Link </a>]), using SSH, IP address and port listed above (127.0.0.1:2222). By default, login - vagrant and password are also vagrant. Stop and delete the created VM.** <br>
 
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_18.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_19.png"> <br>
 
+**15. Create your own Vagrant box [<a href="https://www.oreilly.com/library/view/vagrant-up-and/9781449336103/index.html"> Link to book </a>] ** <br>
 
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_20.png"> <br>
+
+<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/Vagrantfile"> Vagrantfile </a>
 
 
 
