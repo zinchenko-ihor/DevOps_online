@@ -15,7 +15,7 @@
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_1.png"> <br>
 
-**3. Get acquainted with the possibilities of VM1 control -start, stop, reboot, save state, use Host key and keyboard shortcuts, mouse capture, etc. [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.9 </a>]"** <br>
+**3. Get acquainted with the possibilities of VM1 control -start, stop, reboot, save state, use Host key and keyboard shortcuts, mouse capture, etc. [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.9 </a>]** <br>
 
 **4.Clone an existing VM1 by creating a VM2 [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.14 </a>].** <br>
 
