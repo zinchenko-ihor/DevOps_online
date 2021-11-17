@@ -9,7 +9,7 @@
 
 ***Result of task2.2*** <br>
 
-<details><summary>1.Create VM with Amazon Lightsail<summary><br>
+<details><summary>1.Create VM with Amazon Lightsail</summary><br>
 <a href="https://aws.amazon.com/ru/getting-started/hands-on/launch-a-virtual-machine/"> Instruction for launch VM </a> <br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.2/IMG/Create%20VM_Lightsail.png"> <br>
