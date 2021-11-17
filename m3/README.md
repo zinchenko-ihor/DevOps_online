@@ -4,7 +4,7 @@
 <h2 align="center"> Networking Fundamentals </h2>
 
 ***Result of task 3*** <br>
-a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Network.pkt">Download my project "Network" of Cisco Packet Tracert</a>
+<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Network.pkt">Download my project "Network" of Cisco Packet Tracert</a>
 
 <details><summary>3.1 Creation of three separate networks Home Office, Enterprise, Data Center.</summary><br>
 1. Create networks as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.1/Port_Connect_DC.png">Fig.1.</a>] Recommended switch models Catalyst 2960, wireless router - WRT300N.In the Data Center network connect servers to ports according to [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.1/Port_Connect_DC.png">Fig.1.</a>]<br>
