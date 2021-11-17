@@ -14,16 +14,19 @@
 <details><summary>2.Create VM1 and install Ubuntu using the instructions [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.8 </a>]. Set machine name as "host machine name"_"student last name"</summary>
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_1.png"> <br>
 </details>
+
 <details><summary>3.Get acquainted with the possibilities of VM1 control -start, stop, reboot, save state, use Host key and keyboard shortcuts, mouse capture, etc. [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.9 </a>]</summary><br>
 </details>
-**4. Clone an existing VM1 by creating a VM2 [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.14 </a>].** <br>
+
+<details><summary>4.Clone an existing VM1 by creating a VM2 [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.14 </a>].</summary><br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_2.png"> <br>
+</details>
 
-**5. Create a group of two VM: VM1, VM2 and learn the functions related to groups [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.10 </a>].** <br>
+<details><summary>5. Create a group of two VM: VM1, VM2 and learn the functions related to groups [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.10 </a>].</summary><br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_3.png"> <br>
-
+</details>
 **6. For VM1, changing its state, take several different snapshots, forming a branched tree of snapshots [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.11 </a>].** <br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_5.png"> <br>
