@@ -1,5 +1,5 @@
 <h4 align="center">
-  <img alt="NETWORKS" src="http://blogs.vmware.com/telco/files/2019/08/ForMisbahBlog.jpg" width="400">
+  <img alt="NETWORKS" src="https://troubleshootme.com/wp-content/uploads/2019/03/computer_network-1.png" width="400">
 </h4>
 <h2 align="center"> Networking Fundamentals </h2>
 
