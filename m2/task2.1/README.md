@@ -64,7 +64,6 @@
 <details><summary>12.WORK WITH VAGRANT.</summary><br>
 <a href="http://czerasz.com/2015/01/06/vagrant-workflows/"> Vagrant Workflows </a> <br>
 <a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/Vagrantfile"> Vagrantfile </a>
-</details>
 
  **Run the powershell. Create a folder "student name" (in English). Next, go to the folder. Initialize the environment with the default Vagrant box:**
  ```
@@ -81,7 +80,7 @@
 **Create your own Vagrant box [<a href="https://www.oreilly.com/library/view/vagrant-up-and/9781449336103/index.html"> Link to book </a>] ** <br>
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_20.png"> <br>
- 
+</details>
 
 
 
