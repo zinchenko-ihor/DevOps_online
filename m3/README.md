@@ -131,6 +131,7 @@ Router(config-subif)#ip address 6.27.93.129 255.255.255.192
 
 11. On Web Server1, Web Server2 and DNS Server, specify the gateways of the address 6.27.93.1, 6.27.93.65 and 6.27.93.129, respectively.Check for functionality using the ping command from one server to another.<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Res_ping_after_conf_subif_ISP3.png"> <br>
+</details>
 
 <details><summary>3.3 Routing settings.</summary><br>
 1.Suppose that as a result of the division of the backbone network [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Network.png">Fig.1.</a>] on the subnet were assigned addresses to router interfaces, as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Table_of_subnet.png">Table 1</a>].
@@ -155,7 +156,8 @@ Router(config-subif)#ip address 6.27.93.129 255.255.255.192
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/RIP_ISP2.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/RIP_ISP3.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Res_ping_tracert_RIP.png"> <br>
-
+</details>
+  
 <details><summary>3.4 DHCP, DNS, NAT settings.</summary><br>
 1. Configure DHCP Server on an Enterprise Network. Make DHCP Pool settings by specifying the start address 10.93.6.10 and address Default Gateway - interface address GE0/0 Router ISP1. Save settings (Save button) and enable DHCP service (mark "On").<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Conf_DHCP_Server.png"> <br>
@@ -186,7 +188,7 @@ Make the appropriate entries in the DNS server settings. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Forward_port_HR.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Add_DNS_rec_for_HS.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Result_of_forwarding.png"> <br>
- 
+</details>
   
   
 
