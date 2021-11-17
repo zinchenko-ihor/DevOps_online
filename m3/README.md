@@ -49,13 +49,25 @@ previous. Web Server 1 - 50 host, Web Server 2 - 100, DNS Server - 150.
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.1/Ping_RouterHome.png"> <br>
   
 8. Investigation of the structure of the package using an analyzer Wireshark packages.<br>
-  ..8.1 Select the interface for capturing traffic (Capture / Interface menu) and activate capture mode.<br>
-  ..8.2 Complete traffic capture and enter analysis mode.<br>
-  ..8.3 Find a TCP segment in the captured stream. Make it a screenshot.<br>
+  8.1 Select the interface for capturing traffic (Capture / Interface menu) and activate capture mode.<br>
+  8.2 Complete traffic capture and enter analysis mode.<br>
+  8.3 Find a TCP segment in the captured stream. Make it a screenshot.<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.1/WireShark_capture.png"> <br>
-  ..8.4 In this segment, find the headers of the channel, network and transport levels. Select them in the screenshot.<br>
-  ..8.5In each of these headers, find the sender's MAC addresses and recipient, sender and recipient IP addresses, and sender port numbers and recipient.<br>
+  8.4 In this segment, find the headers of the channel, network and transport levels. Select them in the screenshot.<br>
+  8.5In each of these headers, find the sender's MAC addresses and recipient, sender and recipient IP addresses, and sender port numbers and recipient.<br>
    <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.1/Analize_WireShark.png"> <br>
-  
-  
 </details>
+
+<details><summary>3.2 Connecting individual networks via the Internet and settings VLAN.</summary><br>
+1.Connect the networks created in the previous Task to each other, as shown in Fig. 1.To build the Internet, use PT-Empty routers, beforehand inserting 5 1CGE modules into them. Enterprise Network Switch connect to GigabitEthernet0 / 0 interface (GE0 / 0) Router ISP1, Network Switch Connect Data Center to GigabitEthernet0 / 0 (GE0 / 0) Router ISP3 Router, WAN connect the Home Router port of the Home Office network to the GigabitEthernet0 / 0 interface (GE0 / 0), as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png">Fig.1.</a>]. Connect the routers to each other via interfaces, as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png">Fig.1.</a>].
+
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png"> <br>
+
+2.Для реалізації мережі Internet використати мережу з адресою (D+10).M.Y.0/24, поділивши її на підмережі з префіксом /26.
+  ```
+  37.6.93.0/26
+  37.6.93.64/26
+  37.6.93.128/26
+  37.6.93.192/26
+  ```
+3.
