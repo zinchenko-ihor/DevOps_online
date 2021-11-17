@@ -7,8 +7,8 @@
 <a href="https://www.virtualbox.org/manual/ch01.html"> Instruction "How to use VirtualBox" </a> <br>
 
 ***Result of task2.1*** <br>
-<details><summary>1.Download the latest stable version of VirtualBox and install to you PC</summary><br>
-  <a href="https://www.virtualbox.org/wiki/Downloads"> Link for download VB </a> <br>
+<details><summary>1.Download the latest stable version of VirtualBox and install to you PC</summary>
+<a href="https://www.virtualbox.org/wiki/Downloads"> Link for download VB </a> <br>
 
 **2. Create VM1 and install Ubuntu using the instructions [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.8 </a>]. Set machine name as "host machine name"_"student last name"** <br>
 
