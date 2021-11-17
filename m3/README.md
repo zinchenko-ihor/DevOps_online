@@ -17,6 +17,5 @@ D - date of birth. Host part of Client addresses 1 - 10, Client 2 - 20, DHCP Ser
 Client 1 - 10.93.27.10;
 Client 2 - 10.93.27.20;
 DHCP Server - 10.93.27.100
-```<br>
-
+```
 </details>
