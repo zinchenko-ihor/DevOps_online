@@ -72,7 +72,8 @@ previous. Web Server 1 - 50 host, Web Server 2 - 100, DNS Server - 150.
   ```
 3. Assign IP addresses to router interfaces according to the following rules: 
 ```
-Router ISP1 GE0/0 - 10.Y.D.1/24, Router ISP3 GE0/0 - M.D.Y.1/24. Addresses for the rest assign router interfaces according to the address division (D + 10).M.Y.0/24 on the subnet.Attention - be sure to enable the interface by checking the "On" field.
+Router ISP1 GE0/0 - 10.Y.D.1/24, Router ISP3 GE0/0 - M.D.Y.1/24. Addresses for the rest assign router interfaces according 
+to the address division (D + 10).M.Y.0/24 on the subnet.Attention - be sure to enable the interface by checking the "On" field.
   ISP1 GE0/0 - 10.93.6.1/24
   ISP2 GE0/0 - 37.6.93.193/26
   ISP3 GE0/0 - 6.27.93.1/24
@@ -128,8 +129,65 @@ Router(config-subif)#ip address 6.27.93.129 255.255.255.192
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Conf_sub_int_ISP3.png"> <br>
 
-11.On Web Server1, Web Server2 and DNS Server, specify the gateways of the address 6.27.93.1, 6.27.93.65 and 6.27.93.129, respectively.Check for functionality using the ping command from one server to another.<br>
+11. On Web Server1, Web Server2 and DNS Server, specify the gateways of the address 6.27.93.1, 6.27.93.65 and 6.27.93.129, respectively.Check for functionality using the ping command from one server to another.<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Res_ping_after_conf_subif_ISP3.png"> <br>
+
+<details><summary>3.3 Routing settings.</summary><br>
+1.Suppose that as a result of the division of the backbone network [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Network.png">Fig.1.</a>] on the subnet were assigned addresses to router interfaces, as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Table_of_subnet.png">Table 1</a>].
+
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Network.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Table_of_subnet.png"> <br>
+  
+2. Configure routing tables on ISP1, ISP2, and ISP3 routers. IN only remote networks should be entered in the routing table. For example, on the Router ISP2 only needs to specify routes to networks 10.93.27.0/24 and 6.27.93.0/24. Network 192.168.0.0 in the table of routers ISP1, ISP2 and ISP3 to enter unnecessary because it is under NAT.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Routing_on_ISP1.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Routing_on_ISP2.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Routing_on_ISP3.png"> <br>
+ 
+3. Configure Routing on a Wireless Home Router, for what to add Default route to ISP2 Router.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Routing_HomeRouter.png"> <br>
+
+4. Check the network with ping and tracert. The latter the command will allow you to control the packet route.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Result_ping_tracert_from_Cl1_to_WS1.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Res_ping_tracert_from_CL3_to_CL2.png"> <br>
+  
+5. Remove static routers from router tables ISP1, ISP2, and ISP3 records. On routers ISP1, ISP2 and ISP3 to configure the RIP protocol, for what specify a list of directly connected networks in class format. Repeat the ping command to verify that it works.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/RIP_ISP1.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/RIP_ISP2.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/RIP_ISP3.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.3/Res_ping_tracert_RIP.png"> <br>
+
+<details><summary>3.4 DHCP, DNS, NAT settings.</summary><br>
+1. Configure DHCP Server on an Enterprise Network. Make DHCP Pool settings by specifying the start address 10.93.6.10 and address Default Gateway - interface address GE0/0 Router ISP1. Save settings (Save button) and enable DHCP service (mark "On").<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Conf_DHCP_Server.png"> <br>
+  
+2. Check the serviceability of the service by setting in the settings Client 1 and Client 2 - DHCP.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Get_IP_from_DHCP.png"> <br>
+
+3. Configure DHCP on the Home Router and test the functionality on Client 3.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Setup_DHCP_HR.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Get_IP_from%20DHCP_Client3.png"> <br>
+  
+4. To configure and verify the operation of the DNS service, assign Web Server1 and Web Server2 domain names, such as domain1.com and domain2.com, respectively. 
+Make the appropriate entries in the DNS server settings. <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Setup_DNS.png"> <br>
+  
+5. Add the DNS server address to the DHCP server settings and update settings on clients (switching from DHCP to Static and back to DHCP).Check the functionality by sending a ping from the Client to the domain name.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Add_DNS_to_DHCP_Get_IP_with_DNS.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Ping_to_domain_name.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Ping_domain_from_CL3.png"> <br>
+  
+6. Configure Port Forwarding on the Home Router. Add a Home Office Home Server network and assign it a static address 192.168.0.100.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Config_HomeServer.png"> <br>
+  
+7. On the home server for the HTTP service, configure index.html.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Edit_Index.png"> <br>
+  
+8. Configure Port Forwarding on the Home Router and add a DNS Server entry for the Home Server. Check performance by typing on Client1 in Desktop/Web Browser - domain3.com<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Forward_port_HR.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Add_DNS_rec_for_HS.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.4/Result_of_forwarding.png"> <br>
+ 
   
   
+
   
