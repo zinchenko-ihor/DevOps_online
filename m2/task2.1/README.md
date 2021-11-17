@@ -5,9 +5,9 @@
 
 ***Work with VirtualBox*** <br>
 <a href="https://www.virtualbox.org/manual/ch01.html"> Instruction "How to use VirtualBox"  </a> <br>
-
-***Result of task2.1*** <br>
-
+<details>
+  <sumary> ***Result of task2.1*** </sumary> <br>
+  
 **1. Download the latest stable version of VirtualBox and install to you PC** <br>
 <a href="https://www.virtualbox.org/wiki/Downloads"> Link for download VB </a> <br>
 
@@ -75,7 +75,7 @@
 
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_20.png"> <br>
 
-
+</details>
 
 
 
