@@ -10,8 +10,7 @@
 <details><summary>1.Download the latest stable version of VirtualBox and install to you PC</summary>
 <a href="https://www.virtualbox.org/wiki/Downloads"> Link for download VB </a> <br>
 
-**2. Create VM1 and install Ubuntu using the instructions [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.8 </a>]. Set machine name as "host machine name"_"student last name"** <br>
-
+<summary>2.Create VM1 and install Ubuntu using the instructions [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.8 </a>]. Set machine name as "host machine name"_"student last name"</summary>
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m2/task2.1/IMG/Screenshot_1.png"> <br>
 
 **3. Get acquainted with the possibilities of VM1 control -start, stop, reboot, save state, use Host key and keyboard shortcuts, mouse capture, etc. [<a href="https://www.virtualbox.org/manual/"> 1, chapter 1.9 </a>]** <br>
