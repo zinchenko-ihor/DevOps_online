@@ -59,15 +59,77 @@ previous. Web Server 1 - 50 host, Web Server 2 - 100, DNS Server - 150.
 </details>
 
 <details><summary>3.2 Connecting individual networks via the Internet and settings VLAN.</summary><br>
-1.Connect the networks created in the previous Task to each other, as shown in Fig. 1.To build the Internet, use PT-Empty routers, beforehand inserting 5 1CGE modules into them. Enterprise Network Switch connect to GigabitEthernet0 / 0 interface (GE0 / 0) Router ISP1, Network Switch Connect Data Center to GigabitEthernet0 / 0 (GE0 / 0) Router ISP3 Router, WAN connect the Home Router port of the Home Office network to the GigabitEthernet0 / 0 interface (GE0 / 0), as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png">Fig.1.</a>]. Connect the routers to each other via interfaces, as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png">Fig.1.</a>].
+1. Connect the networks created in the previous Task to each other, as shown in Fig. 1.To build the Internet, use PT-Empty routers, beforehand inserting 5 1CGE modules into them. Enterprise Network Switch connect to GigabitEthernet0 / 0 interface (GE0 / 0) Router ISP1, Network Switch Connect Data Center to GigabitEthernet0 / 0 (GE0 / 0) Router ISP3 Router, WAN connect the Home Router port of the Home Office network to the GigabitEthernet0 / 0 interface (GE0 / 0), as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png">Fig.1.</a>]. Connect the routers to each other via interfaces, as shown in [<a href="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png">Fig.1.</a>].
 
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Interface_Connet.png"> <br>
 
-2.Для реалізації мережі Internet використати мережу з адресою (D+10).M.Y.0/24, поділивши її на підмережі з префіксом /26.
+2. Для реалізації мережі Internet використати мережу з адресою (D+10).M.Y.0/24, поділивши її на підмережі з префіксом /26.
   ```
   37.6.93.0/26
   37.6.93.64/26
   37.6.93.128/26
   37.6.93.192/26
   ```
-3.
+3. Assign IP addresses to router interfaces according to the following rules: 
+```
+Router ISP1 GE0/0 - 10.Y.D.1/24, Router ISP3 GE0/0 - M.D.Y.1/24. Addresses for the rest assign router interfaces according to the address division (D + 10).M.Y.0/24 on the subnet.Attention - be sure to enable the interface by checking the "On" field.
+  ISP1 GE0/0 - 10.93.6.1/24
+  ISP2 GE0/0 - 37.6.93.193/26
+  ISP3 GE0/0 - 6.27.93.1/24
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Config_Gi00_ISP1.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Config_Gi00_ISP2.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Config_Gi00_IS32.png"> <br>
+  
+4. On computers, specify the addresses of the corresponding gateway addresses (Default Gateway).<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Conf_Client1.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/COnfig_DHCP.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Config_Client2.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Config_WS1-2_DNS.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Config_Home_Router.png"> <br>
+  
+5. Check the connection of computers to their own gateways with the ping command. <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Ping_from_Cl1_To_ISP1.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Ping_from_Cl1_To_ISP2.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Ping_ISP3_from_WS1-2_DNS.png"> <br>
+  
+6.Check the connection between the servers with the ping command and the route passing the package using tracert.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Ping_Tracert_WS1-2.png"> <br>
+  
+7. Change the subnet mask on the servers to 255.255.255.192. Repeat step 6 and record and explain the changes.
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Result_ping_tracert_after_change_mask_to_26.png"> <br>
+  
+8. Change the Switch Data Center VLAN port affiliation as follows: 
+```
+  FE0/2 - VLAN2;
+  FE0/3 - VLAN3;
+  FE0/4 - VLAN4.
+```
+To do this, create the appropriate additional VLANs in the Switch Data Center.Repeat step 6.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Add_VLAN_to_DC_Switch.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/FE02_Vlan2.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/FE03_Vlan3.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Result_ping_tracert_after_change_Vlans.png"> <br>
+
+9. To configure routing between VLANs, you must switch port FE0/1 Data Center switch in trunk mode.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Change_mode_to_trank_DC_switch.png"> <br>
+
+10. Switch to CLI mode on the router ISP3, create three subinterfaces and configure them as shown below. In IP addresses instead of the first three units put M.D.Y:
+```
+Router(config-if)# interface GigabitEthernet0/0.2
+Router(config-subif)#encapsulation dot1Q 2
+Router(config-subif)#ip address 6.27.93.1 255.255.255.192
+Router(config-if)# interface GigabitEthernet0/0.3
+Router(config-subif)#encapsulation dot1Q 3
+Router(config-subif)#ip address 6.27.93.65 255.255.255.192
+Router(config-if)# interface GigabitEthernet0/0.4
+Router(config-subif)#encapsulation dot1Q 4
+Router(config-subif)#ip address 6.27.93.129 255.255.255.192
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Conf_sub_int_ISP3.png"> <br>
+
+11.On Web Server1, Web Server2 and DNS Server, specify the gateways of the address 6.27.93.1, 6.27.93.65 and 6.27.93.129, respectively.Check for functionality using the ping command from one server to another.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m3/Task3.2/Res_ping_after_conf_subif_ISP3.png"> <br>
+  
+  
+  
