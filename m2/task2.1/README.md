@@ -5,8 +5,7 @@
 
 ***Work with VirtualBox*** <br>
 <a href="https://www.virtualbox.org/manual/ch01.html"> Instruction "How to use VirtualBox"  </a> <br>
-<details>
-  <sumary> ***Result of task2.1*** </sumary> <br>
+<details><sumary>***Result of task2.1***</sumary> <br>
   
 **1. Download the latest stable version of VirtualBox and install to you PC** <br>
 <a href="https://www.virtualbox.org/wiki/Downloads"> Link for download VB </a> <br>
