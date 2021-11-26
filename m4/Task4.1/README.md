@@ -14,25 +14,25 @@
 4. Create a database on the server through the console. <br>
    <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Tables.png"> <br>
   
-5. Fill in tables.<br>
+5. Fill in tables. <br>
    <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/All_Tables.png"> <br>
   
-6. Construct and execute SELECT operator with WHERE, GROUP BY and ORDER BY.<br>
+6. Construct and execute SELECT operator with WHERE, GROUP BY and ORDER BY. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Select.png"> <br>
 
-7. Execute other different SQL queries DDL, DML, DCL.<br>
+7. Execute other different SQL queries DDL, DML, DCL. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Insert.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Insert_2.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Delete.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Delete.png"> <br>
   
-8. Create a database of new users with different privileges. Connect to the database as a new user and verify that the privileges allow or deny certain actions.<br>
+8. Create a database of new users with different privileges. Connect to the database as a new user and verify that the privileges allow or deny certain actions. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/New_DB.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Users.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Grants_For_Admin.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Grants_For_test.png"> <br>
   
-9. Make a selection from the main table DB MySQL.<br>
+9. Make a selection from the main table DB MySQL. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Denided.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Denided1.png"> <br>
 </details>
