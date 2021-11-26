@@ -26,7 +26,7 @@
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Delete.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Delete.png"> <br>
   
-8.Create a database of new users with different privileges. Connect to the database as a new user and verify that the privileges allow or deny certain actions.<br>
+8. Create a database of new users with different privileges. Connect to the database as a new user and verify that the privileges allow or deny certain actions.<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/New_DB.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Users.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Grants_For_Admin.png"> <br>
