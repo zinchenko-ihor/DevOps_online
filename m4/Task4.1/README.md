@@ -1,4 +1,6 @@
-h4 align="center"> <img alt="DATABASES" src="https://download.pingcap.com/images/blog/choosing-right-database-for-your-applications.png" width="400"> </h4>
+<h4 align="center"> 
+  <img alt="DATABASES" src="https://download.pingcap.com/images/blog/choosing-right-database-for-your-applications.png" width="500"> 
+</h4>
 <h2 align="center"> Database Administration </h2>
 
 ***Result of task 4*** <br>
