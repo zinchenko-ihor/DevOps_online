@@ -12,10 +12,10 @@
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/install%20mysql_server.png"> <br>
 3. Select a subject area and describe the database schema, (minimum 3 tables). <br>
 4. Create a database on the server through the console. <br>
-   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Tables.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Tables.png"> <br>
   
 5. Fill in tables. <br>
-   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/All_Tables.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/All_Tables.png"> <br>
   
 6. Construct and execute SELECT operator with WHERE, GROUP BY and ORDER BY. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Select.png"> <br>
