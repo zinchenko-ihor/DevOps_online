@@ -25,8 +25,7 @@
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Insert.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Insert_2.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Delete.png"> <br>
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Delete.png"> <br>
-  
+    
 8. Create a database of new users with different privileges. Connect to the database as a new user and verify that the privileges allow or deny certain actions. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/New_DB.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Users.png"> <br>
@@ -43,7 +42,7 @@
 10. Make backup of your database. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/BackUp_Create.png"> <br>
   
-11. .Delete the table and/or part of the data in the table. <br>
+11. Delete the table and/or part of the data in the table. <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m4/Task4.1/IMG/Drop_Table.png"> <br>
   
 12. Restore your database. <br>
