@@ -6,10 +6,10 @@
 ***Result of task 5.1*** <br>
 
 <details><summary>PART 1</summary><br>
-1. Log in to the system as root user. <br>
-  ```  
-  sudo su
-  ```
+1. Log in to the system as root user. 
+```  
+sudo su
+```
 2. Password change is performed using the passwd utility. This is a very powerful utility, it allows you not only to change your password, but also to manage its lifetime and see the status of passwords.<br>
 More information can be found <a href="https://losst.ru/kak-smenit-parol-v-linux">here.</a> <br>
 The command 'passwd' makes changes to such files after executing:<br>
