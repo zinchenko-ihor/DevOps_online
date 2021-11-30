@@ -21,8 +21,24 @@ The command 'passwd' makes changes to such files after executing:<br>
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Root_chng_psswd.png"> <br>
   
-3. The Linux user list is stored in the / etc / passwd file, you can easily open it and view it using the following commands: <br>
+3. The Linux user list is stored in the /etc/passwd file, you can easily open it and view it using the following commands: <br>
 ```
 cat /etc/passwd
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Determine_users.png"> <br>
+  
+  There is too much extra data in the / etc / passwd file, if you only want usernames, you can filter the output:<br>
+```
+sed 's/:.*//' /etc/passwd
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Filter_user.png"> <br>
+  
+  To see what users are currently active in the system, and what commands they execute. There is a utility "w" for this.You can also use the commands "finger" and "who".
+  In addition, you can view the history of user logins. For this, there is the "last" command, it displays information based on the /var/wtmp log and you can see the last login date for each user using the "lastlog" command:
+```
+w - what users are currently active in the system;
+last -a - history of user logins;
+lastlog - last login date for each user.
+```
+ <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Active_user.png"> <br>
+ 
