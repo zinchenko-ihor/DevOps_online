@@ -6,7 +6,8 @@
 ***Result of task 5.1*** <br>
 
 <details><summary>PART 1</summary><br>
-1. Log in to the system as root user. 
+1. Log in to the system as root user. <br>
+  
 ```  
 sudo su
 ```
