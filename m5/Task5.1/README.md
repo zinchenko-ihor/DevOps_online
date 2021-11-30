@@ -224,3 +224,82 @@ the terminal using the -l and -a switches.<br>
   If you delete the file pointed to by the symbolic link, the file-link will simply become inoperative.
   ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/LNK.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/LNK.png"> <br>
+  
+7. Using the locate utility, find all files that contain the squid and traceroute sequence.<br>
+```
+  sudo apt install locate -y
+  sudo updatedb
+  find -A squid
+  find -A traceroute
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Locate_squid.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Locate_tracerote.png"> <br>
+  
+8. Determine which partitions are mounted in the system, as well as the types of these partitions. <br>
+  The df linux command allows you to display not only the list of connected devices, but also the occupied space, as well as the mount point.<br>
+  ```
+  df
+  df -h
+  ```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/df_8.2.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/df_h.png"> <br> 
+  
+9. Count the number of lines containing a given sequence of characters in a given file. <br>
+```
+  less -N test/hatd_lnk_labwork2
+  less test/hatd_lnk_labwork2 | wc -l
+  
+  -N - --LINE-NUMBERS (display line numbers);
+  wc - utility for counting the number of lines and words in the text;
+  -l - --lines (Print the number of lines in the object).
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/less-N9.2.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/less_wc_9.2.png"> <br>
+ 
+10. Using the find command, find all files in the /etc directory containing the host character sequence. <br>
+```
+  cd /etc
+  sudo find -type f -name '*host*'
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/find.png"> <br>
+  
+11. List all objects in /etc that contain the ss character sequence. <br>
+```
+  ls -la | grep "ss"
+  -l - output in long format;
+  -a - list all files;
+  grep - command line utility that finds lines on input that match a given regular expression;
+  "ss" - file search key.
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/grep.png"> <br> 
+  
+12. Organize step by step printing of directory contents /etc. <br>
+```
+  ls -lah /etc | less
+``` 
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/ls_etc_step.png"> <br> 
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/ls_etc_step_by_step.png"> <br> 
+  
+13. What are the types of devices and how to determine the type of device? Give examples. <br>
+The Linux kernel provides support for two types of devices - character and block. Their main difference is that for block devices, input / output operations are carried out in separate bytes (characters), and in blocks of a fixed size.
+In Linux, all work with devices is done through special files, which are usually located in the / dev directory. Special files do not contain data, but simply serve as points through which you can access the driver of the corresponding device. Each special file has three characteristics — the device type (character or block), the major number, and the minor number. For example, let's look at the contents of the /dev directory:
+```
+  ls -lah /dev
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Device.png"> <br>
+  
+To support device manipulation, the kernel maintains two tables, one for the character device list and the other for the block device list. Each row of the table is mapped to some kind of device of the corresponding type - for example, for the “character devices” type, the following varieties can be distinguished: COM ports, LPT ports, PS / 2 mice, USB mice, etc., for the type “Block devices” can be SCSI-disks, IDE-disks, SCSI-CD-drives, virtual disks of which are RAID controllers, etc.<br>
+  
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Charactesr_devices.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Block_devices.png"> <br>
+  
+14. How to determine the type of file in the system, what types of files are there? <br>
+Files in the Linux operating system can be divided into three main types:
+- Regular files for storing information - These are files that we are used to working with every day, they can contain text, 
+  executable instructions for programs, images or other information;
+- Special files - for devices and tunnels - these are files that allow you to configure communication between two processes 
+  by redirecting the output of one process to the input of another;
+- Directories - these are special files that allow others and directories to be grouped together for easier navigation and searching.
+
+ 
