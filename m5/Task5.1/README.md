@@ -14,9 +14,9 @@ sudo su
 2. Password change is performed using the passwd utility. This is a very powerful utility, it allows you not only to change your password, but also to manage its lifetime and see the status of passwords. More information can be found <a href="https://losst.ru/kak-smenit-parol-v-linux">here.</a> <br>
 The command 'passwd' makes changes to such files after executing:<br>
 ```
-/etc/passwd - user accaunts information; 
-/etc/shadow - passwords are stored here encrypted;
-/etc/pam.d/passwd - Pluggable  Authentication Modules(PAM) for passwd.
+/etc/passwd - user accaunts information
+/etc/shadow - passwords are stored here encrypted
+/etc/pam.d/passwd - Pluggable  Authentication Modules(PAM) for passwd
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Root_chng_psswd.png"> <br>
   
@@ -35,9 +35,9 @@ sed 's/:.*//' /etc/passwd
   To see what users are currently active in the system, and what commands they execute. There is a utility "w" for this.You can also use the commands "finger" and "who".
   In addition, you can view the history of user logins. For this, there is the "last" command, it displays information based on the /var/wtmp log and you can see the last login date for each user using the "lastlog" command:
 ```
-w - what users are currently active in the system;
-last -a - history of user logins;
-lastlog - last login date for each user.
+w - what users are currently active in the system
+last -a - history of user logins
+lastlog - last login date for each user
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Active_user.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/last_a.png"> <br>
@@ -120,6 +120,7 @@ specific sequence of characters. List subdirectories of the root directory up to
   sudo apt install tree
   sudo tree -d  
   sudo tree -L 2 -P '*c*'
+  
   -d - List directories only
   -L - level (Max display depth of the directory tree, argument 2 - second level)
   -P - pattern (List  only  those files that match the wild-card pattern. In this example argument '*c*' - display all files that contain a character c)
@@ -250,9 +251,9 @@ the terminal using the -l and -a switches.<br>
   less -N test/hatd_lnk_labwork2
   less test/hatd_lnk_labwork2 | wc -l
   
-  -N - --LINE-NUMBERS (display line numbers);
-  wc - utility for counting the number of lines and words in the text;
-  -l - --lines (Print the number of lines in the object).
+  -N - --LINE-NUMBERS (display line numbers)
+  wc - utility for counting the number of lines and words in the text
+  -l - --lines (Print the number of lines in the object)
 ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/less-N9.2.png"> <br>
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/less_wc_9.2.png"> <br>
@@ -267,6 +268,7 @@ the terminal using the -l and -a switches.<br>
 11. List all objects in /etc that contain the ss character sequence. <br>
 ```
   ls -la | grep "ss"
+  
   -l - output in long format;
   -a - list all files;
   grep - command line utility that finds lines on input that match a given regular expression;
@@ -326,10 +328,11 @@ To determine the file type, we can use the "file" command:
 15. List the first 5 directory files that were recently accessed in the /etc directory. <br>
   ```
   ls -ltr /etc | tail -n5
-  -l - output in long format;
-  -t - file names are sorted by time (most recent files come first);
-  -r - if the -t flag is present, output older files first;
-  tail - linux command used to print the N-th number of last lines or files.;
-  -n - number of the last files.
+  
+  -l - output in long format
+  -t - file names are sorted by time (most recent files come first)
+  -r - if the -t flag is present, output older files first
+  tail - linux command used to print the N-th number of last lines or files
+  -n - number of the last files
 ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/15.png"> <br>
