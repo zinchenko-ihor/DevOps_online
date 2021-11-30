@@ -19,12 +19,10 @@ The command 'passwd' makes changes to such files after executing:<br>
 /etc/shadow - passwords are stored here encrypted;
 /etc/pam.d/passwd - Pluggable  Authentication Modules(PAM) for passwd.
 ```
-<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Root_chng_psswd.png"> <br>
   
 3. The Linux user list is stored in the / etc / passwd file, you can easily open it and view it using the following commands: <br>
 ```
 cat /etc/passwd
 ```
-<br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Determine_users.png"> <br>
