@@ -178,3 +178,49 @@ the terminal using the -l and -a switches.<br>
   ```
   rm dirinfo_abs_path.txt dirinfo_rel_path.txt
   ```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/MkDir.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/RM.png"> <br>
+  
+6. Perform the following sequence of operations:
+- create a subdirectory test in the home directory;
+  ```
+  mkdir test
+  ```
+- copy the .bash_history file to this directory while changing its name to labwork2;
+  ```
+  cp .bash_history test/labwork2
+  ```
+- create a hard and soft link to the labwork2 file in the test subdirectory;
+  ```
+  ln labwork2 hardlink
+  ln -s labwork2 softlink
+  ```
+- how to define soft and hard link, what do these concepts;
+  ```
+  In fact, a "hard" link is the same file to which such a "link" goes.
+  A symlink or "soft" link is a special type of file that contains a link to another file or directory as an absolute or relative path.
+  Hardlink cannot point to a file in another file system (since an inode can only belong to one file system), but a symbolic link can.
+  ```
+- change the data by opening a symbolic link. What changes will happen and why?
+  ```
+  When editing a link file, in the case of a hardlink, both files will change, since this is the same object, and in the case of a symlink, 
+  you can change its name, attributes, direct it to another file and at the same time the original file will not be affected 
+  (but if you open the symlink file for editing, then change the original file, because in fact, you will open it for editing).
+  ```
+- rename the hard link file to hard_lnk_labwork2;
+  ```
+  mv hardlink hard_lnk_labwork2
+  ```
+- rename the soft link file to symb_lnk_labwork2 file;
+   ```
+  mv softlink soft_lnk_labwork2
+  ```
+- then delete the labwork2. What changes have occurred and why?
+  ```
+  rm labwork2
+  
+  When removing a hard link - the file will exist as long as there is at least 1 hard link to it, but it can "change the location directory" 
+  if the "original" file was deleted, but the hard link file remained in a different location. 
+  If you delete the file pointed to by the symbolic link, the file-link will simply become inoperative.
+  ```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/LNK.png"> <br>
