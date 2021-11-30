@@ -91,6 +91,7 @@ Options:
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/MAN_less.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/MAN_more.png"> <br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Less_s_bashrc.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/More_s_bashrc.png"> <br>
   
 7. To read the documentation for the finger command, you must run the command:
 ```
@@ -135,4 +136,14 @@ specific sequence of characters. List subdirectories of the root directory up to
 ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/File_command.png"> <br>
   
-3. 
+3. Master the skills of navigating the file system using relative and absolute paths. How can you go back to your home directory from anywhere in the filesystem?<br>
+  To return to your home directory from anywhere in the file system, you need to run the commands:<br>
+```
+Relative path:
+  cd ~  
+  cd $home
+  
+Absolutly path:
+  cd /home/devops
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/cd.png"> <br>
