@@ -98,5 +98,41 @@ man finger
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/MAN_finger.png"> <br>
 
-8. List the contents of the home directory using the ls command, define its files and directories. <br>
+8. List the contents of the home directory using the "ls" command, define its files and directories. <br>
+```
+ls -la
+ls -lsh --group-directories-first
+
+-l - use a long listing format
+-a - --all (do not ignore entries starting with)
+-s - --size (print the allocated size of each file, in blocks)
+-h - --human-readable (with -l and -s, print sizes like 1K 234M 2G etc)
+     --group-directories-first (group directories before files)
+```
+</details>
+
+<details><summary>PART 2</summary><br>
+1. Examine the tree command. Master the technique of applying a template, for example, display all files that contain a character c, or files that contain a
+specific sequence of characters. List subdirectories of the root directory up to and including the second nesting level. <br>
+```
+sudo apt install tree
+sudo tree -d  
+sudo tree -L 2 -P '*c*'
+
+-d - List directories only
+-L - level (Max display depth of the directory tree, argument 2 - second level)
+-P - pattern (List  only  those files that match the wild-card pattern. In this example argument '*c*' - display all files that contain a character c)
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/tree.png"> <br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/tree_L.png"> <br>
   
+2. What command can be used to determine the type of file (for example, text or binary)? Give an example.
+  The "find" command is used to determine the type of files:
+```
+file dump_from_RDS.sql
+file .gitconfig
+file mysql-apt-config_0.8.15-1_all.deb
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/File_command.png"> <br>
+  
+3. 
