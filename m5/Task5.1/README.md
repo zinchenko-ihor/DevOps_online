@@ -10,12 +10,11 @@
 ```
 sudo su
 ```
-<br>
 2. Password change is performed using the passwd utility. This is a very powerful utility, it allows you not only to change your password, but also to manage its lifetime and see the status of passwords.<br>
 More information can be found <a href="https://losst.ru/kak-smenit-parol-v-linux">here.</a> <br>
 The command 'passwd' makes changes to such files after executing:<br>
 ```
-/etc/passwd - user accaunts information
+/etc/passwd - user accaunts information 
 /etc/shadow - passwords are stored here encrypted
 /etc/pam.d/passwd - Pluggable  Authentication Modules(PAM) for passwd.
 ```
