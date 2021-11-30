@@ -143,7 +143,38 @@ Relative path:
   cd ~  
   cd $home
   
-Absolutly path:
+Absolute path:
   cd /home/devops
 ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/cd.png"> <br>
+  
+4. Become familiar with the various options for the ls command. Give examples of listing directories using different keys. Explain the information displayed on
+the terminal using the -l and -a switches.<br>
+  I answered this question in paragraph 8 of part 1. <br>
+  
+5. Perform the following sequence of operations:
+- create a subdirectory in the home directory;
+  ```
+  mkdir Task5.1
+  ```
+- in this subdirectory create a file containing information about directories located in the root directory (using I/O redirection operations);
+  ```
+  tree -dL 1 > Task5.1/dirinfo.txt
+  ```
+- view the created file;
+  ```
+  cat Task5.1/dirinfo.txt
+  ```
+- copy the created file to your home directory using relative and absolute addressing.
+  ```
+  cp Task5.1/dirinfo.txt /home/devops/dirinfo_abs_path.txt
+  cp Task5.1/dirinfo.txt ~/dirinfo_rel_path.txt
+  ```
+- delete the previously created subdirectory with the file requesting removal;
+  ```
+  rm -RI Task5.1
+  ```
+- delete the file copied to the home directory.
+  ```
+  rm dirinfo_abs_path.txt dirinfo_rel_path.txt
+  ```
