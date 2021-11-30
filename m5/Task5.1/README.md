@@ -282,7 +282,7 @@ the terminal using the -l and -a switches.<br>
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/ls_etc_step_by_step.png"> <br> 
   
 13. What are the types of devices and how to determine the type of device? Give examples. <br>
-The Linux kernel provides support for two types of devices - character and block. Their main difference is that for block devices, input / output operations are carried out in separate bytes (characters), and in blocks of a fixed size.
+The Linux kernel provides support for two types of devices - character and block. Their main difference is that for block devices, input/output operations are carried out in separate bytes (characters), and in blocks of a fixed size.
 In Linux, all work with devices is done through special files, which are usually located in the / dev directory. Special files do not contain data, but simply serve as points through which you can access the driver of the corresponding device. Each special file has three characteristics — the device type (character or block), the major number, and the minor number. For example, let's look at the contents of the /dev directory:
 ```
   ls -lah /dev
@@ -300,6 +300,36 @@ Files in the Linux operating system can be divided into three main types:
   executable instructions for programs, images or other information;
 - Special files - for devices and tunnels - these are files that allow you to configure communication between two processes 
   by redirecting the output of one process to the input of another;
-- Directories - these are special files that allow others and directories to be grouped together for easier navigation and searching.
-
- 
+- Directories
+  - these are special files that allow others and directories to be grouped together for easier navigation and searching. <br>
+Utility "ls" can detect file type in list mode with symbol ^:
+```
+  ls -la | grep ^- - for Regular files
+  ls -la | grep ^d - for Directories
+  ls -la | grep ^l - for Link files
+  ls -la | grep ^c - for Characters devices
+  ls -la | grep ^b - for Block devices
+  ls -la | grep ^s - for Local Socket Files
+  ls -la | grep ^p - for Named Pipe Files
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/grep_%5Eb_%5Ed.png"> <br>
+  
+To determine the file type, we can use the "file" command:
+```
+  cd /dev
+  file loop0
+  file vcsa
+  file vfio
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/file_14.png"> <br>
+  
+15. List the first 5 directory files that were recently accessed in the /etc directory. <br>
+  ```
+  ls -ltr /etc | tail -n5
+  -l - output in long format;
+  -t - file names are sorted by time (most recent files come first);
+  -r - if the -t flag is present, output older files first;
+  tail - linux command used to print the N-th number of last lines or files.;
+  -n - number of the last files.
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/15.png"> <br>
