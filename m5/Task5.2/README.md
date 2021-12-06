@@ -31,7 +31,7 @@ The /etc/passwd file is a text file with one entry per line representing the use
   cat /etc/passwd
   ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
-  
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/cat_etc_passwd.png"><br>
 /etc/group contains entries for all groups on the system. Each of its lines contains:
 - the symbolic name of the group - by default, when a new user is created, his group is also created with the same name as the user's login name;
 - the group password is an obsolete field and is currently not used. It usually contains an "x";
