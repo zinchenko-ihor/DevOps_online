@@ -207,6 +207,9 @@ From the man page of passwd command :
   ```
  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_del.png"><br> 
   
+11. Display the extended format of information about the directory, tell about the information columns displayed on the terminal.<br>
+  
+  
 
   
   
