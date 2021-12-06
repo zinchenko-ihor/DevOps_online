@@ -28,13 +28,25 @@ The /etc/passwd file is a text file with one entry per line representing the use
 ```
 cat /etc/passwd
 ```
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Root_chng_psswd.png"> <br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
   
-2. Password change is performed using the passwd utility. This is a very powerful utility, it allows you not only to change your password, but also to manage its lifetime and see the status of passwords. More information can be found <a href="https://losst.ru/kak-smenit-parol-v-linux">here.</a> <br>
-The command 'passwd' makes changes to such files after executing:<br>
+/etc/group contains entries for all groups on the system. Each of its lines contains:
+- the symbolic name of the group - by default, when a new user is created, his group is also created with the same name as the user's login name;
+- the group password is an obsolete field and is currently not used. It usually contains an "x";
+- group ID, or GID;
+- list of member names, separated by commas.
+Recording example:
+  ```
+  bin:x:1:root,bin,daemon
+  ```
+To view the contents of a file, use a text editor or, for example, the cat command:
 ```
-/etc/passwd - user accaunts information
-/etc/shadow - passwords are stored here encrypted
-/etc/pam.d/passwd - Pluggable  Authentication Modules(PAM) for passwd
+cat /etc/group
 ```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/etc_cat_group.png"><br>
+Pseudo user accounts are designed to run certain applications or own certain files. For example: syslog, tcpdump, proxy, daemond, etc.
+  
+2. What are the uid ranges? What is UID? How to define it?<br>
+  
+  
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Root_chng_psswd.png"> <br>
