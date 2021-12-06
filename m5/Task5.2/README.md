@@ -30,8 +30,8 @@ The /etc/passwd file is a text file with one entry per line representing the use
   ```
   cat /etc/passwd
   ```
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/cat_etc_passwd.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/cat_etc_passwd.png"><br>
 /etc/group contains entries for all groups on the system. Each of its lines contains:
 - the symbolic name of the group - by default, when a new user is created, his group is also created with the same name as the user's login name;
 - the group password is an obsolete field and is currently not used. It usually contains an "x";
@@ -45,7 +45,7 @@ To view the contents of a file, use a text editor or, for example, the cat comma
 ```
 cat /etc/group
 ```
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/etc_cat_group.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/etc_cat_group.png"><br>
 Pseudo user accounts are designed to run certain applications or own certain files. For example: syslog, tcpdump, proxy, daemond, etc.
   
 2. What are the uid ranges? What is UID? How to define it?<br>
@@ -58,12 +58,12 @@ The third field here represents the user ID or UID.<br>
   ```
   cat /etc/passwd
   ```
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/UID.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/UID.png"><br>
   
 3. What is GID? How to define it?<br>
 A group identifier, often abbreviated to GID, is a numeric value used to represent a specific group.The range of values for a GID varies amongst different systems; at the very least, a GID can be between 0 and 32,767, with one restriction: the login group for the superuser must have GID 0. This numeric value is used to refer to groups in the /etc/passwd and /etc/group files or their equivalents. Shadow password files and Network Information Service also refer to numeric GIDs. The group identifier is a necessary component of Unix file systems and processes.<br>
 A group identifier, often abbreviated to GID, is a numeric value used to represent a specific group.[1] The range of values for a GID varies amongst different systems; at the very least, a GID can be between 0 and 32,767, with one restriction: the login group for the superuser must have GID 0. This numeric value is used to refer to groups in the /etc/passwd and /etc/group files or their equivalents. Shadow password files and Network Information Service also refer to numeric GIDs. The group identifier is a necessary component of Unix file systems and processes.<br>
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/GID.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/GID.png"><br>
 
 4. How to determine belonging of user to the specific group?<br>
 Belonging user to specific group can be defined in file etc/passwd where described users name, uid, gid, gecos and etc. 
@@ -74,4 +74,49 @@ Also we can determine usergroup with command "groups" and determine a members of
   ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Determinate_group4.png"><br>
   
- 5. 
+ 5. What are the commands for adding a user to the system? What are the basic parameters required to create a user?<br>
+To add/create a new user, you’ve to follow the command "useradd" or "adduser" with "username". The ‘username‘ is a user login name, that is used by a user to login into the system.Only one user can be added and that username must be unique (different from other usernames already exists on the system).<br>
+  ```
+  sudo adduser test
+  
+  Enter data in this fields
+  New password:
+  Retype password:
+  
+  Full name: 
+  Room number:
+  Work phone:
+  Home phone:
+  Other:
+  ```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Create_new_user.png"><br>
+  
+When we run the "useradd" command in the Linux terminal, it does the following basic things:
+- it edits the files /etc/passwd, /etc/shadow, /etc/group and /etc/gshadow for the newly created user account;
+- creates and populates the home directory for the new user;
+- sets permissions and ownership of the home directory.<br>
+Useradd command options:
+  -c, --comment (Any text string. Typically, this is a short description of the account, and is currently used as a field for the user's first and last name).
+  -b, --base-dir (The default base directory for the system if -d HOME_DIR is not specified. BASE_DIR is concatenated with the account name to define the home directory. If the -m option is not used, BASE_DIR must exist).
+  -D, --defaults (See below, the subsection "Changing the default values").
+  -d, --home (For the user being created, the BASE_DIRECTORY directory will be used as the home directory. By default, this value is obtained by concatenating the username with BASE_DIR, and is used as the name of the home directory).
+  -e, --expiredate (The date when the user account will be blocked).
+  -f, --inactive (The number of days that must elapse after the password has expired for the account to be permanently locked).
+  -g, --gid (The name or numeric identifier of the new initial user group).
+  -G, --groups (List of additional groups in which the user is listed).
+  -h, --help (Show quick help and exit).
+  -m, --create-home (If the user's home directory does not exist, it will be created).
+  -K, --key (Used to change the default values stored in the /etc/login.defs file).
+  -l --list (Do not add the user to the lastlog and faillog databases).
+  -N, --no-user-group (Do not create a group with the same name as the user, but add the user to the group specified by the -g option or by the GROUP variable in /etc/default/useradd).
+  -o, --non-unique (Allows you to create an account with an existing (not unique) UID).
+  -p, --password (The encrypted password value returned by crypt (3). By default, the account is locked).
+  -s, --shell (The name of the user's login shell. If set to empty, the default login shell will be used).
+  -u, --uid (The numeric value of the user identifier (ID). It must be unique unless the -o option is used. The value must be non-negative).
+  -U, --user-group (reate a group with the same name as the user, and add the user to this group).<br>
+  
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Create_new_user.png"><br>
+
+  
+
+
