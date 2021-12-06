@@ -61,4 +61,17 @@ The third field here represents the user ID or UID.<br>
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/UID.png"><br>
   
 3. What is GID? How to define it?<br>
+A group identifier, often abbreviated to GID, is a numeric value used to represent a specific group.The range of values for a GID varies amongst different systems; at the very least, a GID can be between 0 and 32,767, with one restriction: the login group for the superuser must have GID 0. This numeric value is used to refer to groups in the /etc/passwd and /etc/group files or their equivalents. Shadow password files and Network Information Service also refer to numeric GIDs. The group identifier is a necessary component of Unix file systems and processes.<br>
+A group identifier, often abbreviated to GID, is a numeric value used to represent a specific group.[1] The range of values for a GID varies amongst different systems; at the very least, a GID can be between 0 and 32,767, with one restriction: the login group for the superuser must have GID 0. This numeric value is used to refer to groups in the /etc/passwd and /etc/group files or their equivalents. Shadow password files and Network Information Service also refer to numeric GIDs. The group identifier is a necessary component of Unix file systems and processes.<br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/GID.png"><br>
+
+4. How to determine belonging of user to the specific group?<br>
+Belonging user to specific group can be defined in file etc/passwd where described users name, uid, gid, gecos and etc. 
+Also we can determine usergroup with command "groups" and determine a members of groups by command "members":
+  ```
+  groups devops
+  members --all sudo
+  ```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Determinate_group4.png"><br>
   
+ 5. 
