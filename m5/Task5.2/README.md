@@ -49,4 +49,16 @@ cat /etc/group
 Pseudo user accounts are designed to run certain applications or own certain files. For example: syslog, tcpdump, proxy, daemond, etc.
   
 2. What are the uid ranges? What is UID? How to define it?<br>
+UID stands for User ID. The UID is the number assigned to every Linux user. This is the user view in the Linux kernel.
+The UID is used to identify the user on the system and to determine which system resources the user can access. This is why the user ID must be unique.<br>
+You can find the UID in the / etc / passwd file. This is the same file that you can use to list all users on a Linux system.
+Use Linux command "cat"to view the text file and you will see various information about the users present on your system.
+The third field here represents the user ID or UID.<br>  
+  
+  ```
+  cat /etc/passwd
+  ```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/UID.png"><br>
+  
+3. What is GID? How to define it?<br>
   
