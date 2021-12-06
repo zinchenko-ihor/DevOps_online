@@ -96,23 +96,23 @@ When we run the "useradd" command in the Linux terminal, it does the following b
 - creates and populates the home directory for the new user;
 - sets permissions and ownership of the home directory.<br>
 Useradd command options:
-  -c, --comment (Any text string. Typically, this is a short description of the account, and is currently used as a field for the user's first and last name).
-  -b, --base-dir (The default base directory for the system if -d HOME_DIR is not specified. BASE_DIR is concatenated with the account name to define the home directory. If the -m option is not used, BASE_DIR must exist).
-  -D, --defaults (See below, the subsection "Changing the default values").
-  -d, --home (For the user being created, the BASE_DIRECTORY directory will be used as the home directory. By default, this value is obtained by concatenating the username with BASE_DIR, and is used as the name of the home directory).
-  -e, --expiredate (The date when the user account will be blocked).
-  -f, --inactive (The number of days that must elapse after the password has expired for the account to be permanently locked).
-  -g, --gid (The name or numeric identifier of the new initial user group).
-  -G, --groups (List of additional groups in which the user is listed).
-  -h, --help (Show quick help and exit).
-  -m, --create-home (If the user's home directory does not exist, it will be created).
-  -K, --key (Used to change the default values stored in the /etc/login.defs file).
-  -l --list (Do not add the user to the lastlog and faillog databases).
-  -N, --no-user-group (Do not create a group with the same name as the user, but add the user to the group specified by the -g option or by the GROUP variable in /etc/default/useradd).
-  -o, --non-unique (Allows you to create an account with an existing (not unique) UID).
-  -p, --password (The encrypted password value returned by crypt (3). By default, the account is locked).
-  -s, --shell (The name of the user's login shell. If set to empty, the default login shell will be used).
-  -u, --uid (The numeric value of the user identifier (ID). It must be unique unless the -o option is used. The value must be non-negative).
+  -c, --comment (Any text string. Typically, this is a short description of the account, and is currently used as a field for the user's first and last name);
+  -b, --base-dir (The default base directory for the system if -d HOME_DIR is not specified. BASE_DIR is concatenated with the account name to define the home directory. If the -m option is not used, BASE_DIR must exist);
+  -D, --defaults (See below, the subsection "Changing the default values");
+  -d, --home (For the user being created, the BASE_DIRECTORY directory will be used as the home directory. By default, this value is obtained by concatenating the username with BASE_DIR, and is used as the name of the home directory);
+  -e, --expiredate (The date when the user account will be blocked);
+  -f, --inactive (The number of days that must elapse after the password has expired for the account to be permanently locked);
+  -g, --gid (The name or numeric identifier of the new initial user group);
+  -G, --groups (List of additional groups in which the user is listed);
+  -h, --help (Show quick help and exit);
+  -m, --create-home (If the user's home directory does not exist, it will be created);
+  -K, --key (Used to change the default values stored in the /etc/login.defs file);
+  -l --list (Do not add the user to the lastlog and faillog databases);
+  -N, --no-user-group (Do not create a group with the same name as the user, but add the user to the group specified by the -g option or by the GROUP variable in /etc/default/useradd);
+  -o, --non-unique (Allows you to create an account with an existing (not unique) UID);
+  -p, --password (The encrypted password value returned by crypt (3). By default, the account is locked);
+  -s, --shell (The name of the user's login shell. If set to empty, the default login shell will be used);
+  -u, --uid (The numeric value of the user identifier (ID). It must be unique unless the -o option is used. The value must be non-negative);
   -U, --user-group (reate a group with the same name as the user, and add the user to this group).<br>
   
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Create_new_user.png"><br>
