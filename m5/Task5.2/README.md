@@ -7,11 +7,10 @@
 
 <details><summary>TASK 2</summary><br>
 1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them? <br>
-/etc/passwd - a file containing a list of user accounts (accounts) in text format. It is the first and main source of information about operating system user rights.<br>
-  
+/etc/passwd - a file containing a list of user accounts (accounts) in text format. It is the first and main source of information about operating system user rights.<br> 
   ```  
   login : password : UID : GID : GECOS : home : shell 
-  ```<br>
+  ```
 Each line of the file describes one user and contains seven fields, separated by colons:
 - registration name or login - The string you enter when you log in. Each username must be a unique string on the computer;
 - password hash - On older Linux systems, the user's encrypted password was stored in the /etc/passwd file. 
@@ -26,10 +25,9 @@ The main purpose of /etc/passwd is to match a username and a user identifier (UI
 there is a serious threat of using a simple brute-force attack to crack a password. Therefore, all passwords have been moved to special files such as /etc/shadow on GNU / Linux or /etc/master.passwd on FreeBSD. 
 These files are not readable by ordinary users. This approach is called a hidden password mechanism.
 The /etc/passwd file is a text file with one entry per line representing the user account. To view the contents of a file, use a text editor or, for example, the cat command:
-
   ```
   cat /etc/passwd
-  ```<br>
+  ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
   
 /etc/group contains entries for all groups on the system. Each of its lines contains:
