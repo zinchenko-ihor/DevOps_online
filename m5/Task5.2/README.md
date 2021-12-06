@@ -3,7 +3,7 @@
 </h4>
 <h2 align="center"> Linux Essentials </h2>
 
-***Result of task 5.1*** <br>
+***Result of task 5.2*** <br>
 
 <details><summary>TASK 2</summary><br>
 1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them? <br>
@@ -28,7 +28,8 @@ The /etc/passwd file is a text file with one entry per line representing the use
 ```
 cat /etc/passwd
 ```
-
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.1/IMG/Root_chng_psswd.png"> <br>
+  
 2. Password change is performed using the passwd utility. This is a very powerful utility, it allows you not only to change your password, but also to manage its lifetime and see the status of passwords. More information can be found <a href="https://losst.ru/kak-smenit-parol-v-linux">here.</a> <br>
 The command 'passwd' makes changes to such files after executing:<br>
 ```
