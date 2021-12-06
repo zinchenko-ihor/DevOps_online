@@ -8,6 +8,7 @@
 <details><summary>TASK 2</summary><br>
 1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them? <br>
 /etc/passwd - a file containing a list of user accounts (accounts) in text format. It is the first and main source of information about operating system user rights.<br> 
+  
   ```  
   login : password : UID : GID : GECOS : home : shell 
   ```
@@ -25,6 +26,7 @@ The main purpose of /etc/passwd is to match a username and a user identifier (UI
 there is a serious threat of using a simple brute-force attack to crack a password. Therefore, all passwords have been moved to special files such as /etc/shadow on GNU / Linux or /etc/master.passwd on FreeBSD. 
 These files are not readable by ordinary users. This approach is called a hidden password mechanism.
 The /etc/passwd file is a text file with one entry per line representing the user account. To view the contents of a file, use a text editor or, for example, the cat command:
+  
   ```
   cat /etc/passwd
   ```
