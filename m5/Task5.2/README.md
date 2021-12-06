@@ -74,7 +74,7 @@ Also we can determine usergroup with command "groups" and determine a members of
   ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Determinate_group4.png"><br>
   
- 5. What are the commands for adding a user to the system? What are the basic parameters required to create a user?<br>
+5. What are the commands for adding a user to the system? What are the basic parameters required to create a user?<br>
 To add/create a new user, you’ve to follow the command "useradd" or "adduser" with "username". The ‘username‘ is a user login name, that is used by a user to login into the system.Only one user can be added and that username must be unique (different from other usernames already exists on the system).<br>
   ```
   sudo adduser test
@@ -115,7 +115,107 @@ Useradd command options:<br>
   -u, --uid (The numeric value of the user identifier (ID). It must be unique unless the -o option is used. The value must be non-negative); <br>
   -U, --user-group (reate a group with the same name as the user, and add the user to this group).<br> 
   
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Create_new_user.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Create_new_user1.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/New_users.png"><br>
+  
+6. How do I change the name (account name) of an existing user? <br>
+"Usermod" is a command-line utility that allows you to modify a user’s login information. <br>
+  
+  ```
+  sudo usermod -l [username]
+  ```
+  Usermod command options:<br>
+  -a, --append (Add user to additional group (s). Use only in conjunction with the -G parameter); <br>
+  -c, --comment (The new value for the comment field in the user password file. Usually it is changed with the "chfn" program); <br>
+  -d, --home (The home directory of the new user); <br>
+  -e, --expiredate (The date when the user account will be blocked); <br>
+  -f, --inactive (The number of days that must elapse after the password has expired for an account blocked forever); <br>
+  -g, --gid (The name or numeric identifier of the new primary group for the user. Group with such name must exist); <br>
+  -G, --groups (List of additional groups in which the user is listed); <br>
+  -l, --login (The username will be changed from NAME to NEW_NAME); <br>
+  -L, --lock (Block user password); <br>
+  -m, --move-home (Move the contents of the home directory to a new location); <br>
+  -o, --non-unique (When used with the -u option, this option allows you to specify a non-unique numeric user ID); <br>
+  -p, --password (The encrypted password value returned by crypt (3)); <br>
+  -R, --root (Make changes in the CAT_CHROOT directory and use the configuration files from the directory CAT_CHROOT); <br>
+  -s, --shell (The name of the user's new login shell); <br>
+  -u, --uid (new numeric user id);<br>
+  -U, --unlock (Unlock user password); <br>
+  -v, --add-sub-uids (Add a range of subordinate uids to the user's account); <br>
+  -V, --del-sub-uids (Remove a range of subordinate uids from the user's account); <br>
+  -w, --add-sub-gids (Add a range of subordinate gids to the user's account); <br>
+  -W, --del-sub-gids (Remove a range of subordinate gids from the user's account); <br>
+  -Z, --selinux-user (New SELinux user for user login). <br>
+  
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/usermod.png"><br>
+  
+7. What is skell_dir? What is its structure? <br>
+Directory /etc/skel/ (skel is derived from the “skeleton”) is used to initiate home directory when a user is first created. A sample layout of “skeleton” user files is as shown below: <br>
+  
+  ```
+   ls -lart /etc/skel
+  ```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Skel.png"><br>
+  
+Below is a sample /etc/defualt/useradd file which defines the skel directory. You can change the default location /etc/skel to any other location.
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Scel_tree.png"><br>
+  
+Default permission of /etc/skel is drwxr-xr-x. It is not recommended to change the permission of skel directory or its contents.
+  
+8. How to remove a user from the system (including his mailbox)? <br>
+The command "userdel" removes user entries from the /etc/passwd and /etc/shadow files.
+In most Linux distributions, when removing a user account with userdel, the user home and mail spool directories are not removed.
+Use the -r (--remove) option to force userdel to remove the user’s home directory and mail spool:
+  ```
+  userdel -r username
+  ```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/userdel.png"><br>
+  
+If the user you want to remove is still logged in, or if there are running processes that belong to this user, the userdel command does not allow to remove the user.
+In this situation, it is recommended to log out the user and kill all user’s running processes with the killall command:
+  ```
+  sudo killall -u username
+  ```  
+9. What commands and keys should be used to lock and unlock a user account? <br>
+The passwd command on Linux works with a user account. You can also use this command for a user account.
+The command mainly works with the / etc / passwd file. You can manually modify this file, but we advise against doing this.
+To lock a user using the passwd command or usermod command, you can use the -l (-L for usermod) or –lock option as follows:
+  ```
+  sudo passwd -l user_name
+  sudo usermod -L user_name
+  ```
+You can find out if a user is locked or unlocked using the -S or –status option of the passwd command.
+  ```
+  sudo passwd -S user_name
+  ```
+Look at the second field in the output. Here's what it means:
+  - P or PS: password set (user unlocked);
+  - L or LK: user locked;
+  - N or NP: no password required by the user.<br>
+To unlock a user with the passwd command or usermod command, you can use the -u (-U for usermod) or –unlock option:
+  ```
+  sudo passwd -u user_name
+  sudo usermod -U user_name
+  ```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Lock_unlock.png"><br>
+  
+10. How to remove a user's password and provide him with a password-free login for subsequent password change? <br>
+To force user for password change is to use the command passwd with -e option and -d option. The -e option expires the current user password forcing user to set a new one on next login. And -d option remove user password (make it blank). This is a quick way to block your account password. This makes the specified account passwordless.
+From the man page of passwd command :
+  ```
+  sudo passwd -de user_name
+  ```
+ <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_del.png"><br> 
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
 
   
 
