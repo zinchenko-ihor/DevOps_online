@@ -258,17 +258,93 @@ From the man page of passwd command :
   ```
   
 13. What is the sequence of defining the relationship between the file and the user? <br>
+  The hierarchy of user-level access is broken down as follows: the rights of the owner user, the rights of members of the owner group, and the rights of everyone else.
+  Accordingly, for each category, it is indicated what operations with the file are available: read (r), write (w), or execute (x) - for executable files. For directories, the parameters are the same, but they mean a little different: directory browsing (r), creating folders/files (w) inside the directory, switching to the directory (x).
   
+14. What commands are used to change the owner of a file (directory), as well as the mode of access to the file? Give examples, demonstrate on the terminal.<br>
+  To change file permissions on linux you can use chmod utility. It allows you to change all flags, including special ones. 
+  Let's consider its syntax:
+```
+  chmod <options> <category> <action> <flag> <file>
+```
+With the -R option, you can force the program to apply changes to all files and directories recursively.
+The category indicates for which user group the rights should be applied, as you remember, only three categories are available:
+  u - file owner;
+  g - file group;
+  o - other users.  
+The action can be one of two things, either add - sign "+", or remove - sign - "-". As for the permissions themselves, they are similar to the output of the ls utility: r - read, w - write, x - execute, s - suid / sgid, depending on the category for which you set it, t - sets sticky-bit. For example:
+```
+  chmod ugo+rwx 1.txt - all users full access to the file 1.txt
+  chmod go-rw 1.txt - take read and write permissions from the group and other users to the file 1.txt
+  chmod u+s 1.txt - For the 1.txt file, set SUID
+  chmod g+s 1.txt - For the 1.txt file, set SGID
+```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/chmod.png"><br> 
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/chmod1.png"><br>
   
+15. What is an example of octal representation of access rights? Describe the umask command.
+  Each of the access levels can be expressed in octal using a numeric value: 4 (r), 2 (w), 1 (x). 
+  This is how we get the general scheme of rights:
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/table.png"><br>
   
-
+  Permissions can be expressed not only in the form of a sequence of letters, but also in octal, for example, for -rw-rw-r--, the entry will look like this: 0664. Permissions for a file by default in Linux in octal format are written as 0666, and for the directory 0777. In this case, 0 does not mean anything, and each digit means a set of rights for a specific group. First the owner, then the group, and then everyone else. But thanks to the mask in Linux, by default, the file permissions are set to 0664, and for the directory 0775. It is the setting of these values that the "umask" command affects.
+  The "umask" command sets the mask of rights for new files and directories. When creating any file, the operating system asks for a rights mask and calculates the mask based on it. The default mask is 0002. The first digit does not affect anything and is a relic of the C language syntax. Further, the numbers are similar to the access rights in Linux: the first is the owner, the second is the group, and the third is all the rest. This mask is used to calculate file permissions.
+In fact, it turns out that the mask contains permissions that will not be set for the file. Therefore, the default permissions for the file will be 666 - 002 = 664, and for the directory - 777 - 002 = 775.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/umask.png"><br> 
   
+Utility options:
+```
+umask -p
+umask -S
+-p - display the umask command, which, when executed, will set the current mask in octal form;
+-S - display the default permissions for the folder in the format u = rwx, g = rwx, o = rwx calculated by the current mask.
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m5/Task5.2/IMG"><br>
   
+16. Give definitions of sticky bits and mechanism of identifier substitution. Give an example of files and directories with these attributes.
+  The sticky bit was initially introduced to ‘stick’ an executable program’s text segment in the swap space even after the program has completed execution, to speed up the subsequent runs of the same program. However, these days the sticky bit means something entirely different.
+  When a directory has the sticky bit set, its files can be deleted or renamed only by the file owner, directory owner and the root user. The command below shows how the sticky bit can be set.
+```
+  cmod +t [file_name]
+```
+  To remove the sticky bit, simply use the following command.
+```
+  cmod -t [file_name]
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/sticky_bit.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/sticky_bit1.png"><br>
   
+In order for ordinary users to execute programs on behalf of the superuser, a thing like SUID and SGID bits was invented without knowing his password.
+  SUID - if this bit is set, then when the program is running, the id of the user from which it was launched is replaced with the id of the file owner. In fact, it allows regular users to run programs as the superuser;
+  GID - This flag works in a similar way, only the difference is that the user is considered a member of the group that the file is associated with, and not the groups to which he actually belongs. If the SGID flag is set to a directory, all files created in it will be associated with the directory group, not the user. This behavior is used to organize public folders.
+  Substitution of an identifier in the event that a process starts instead of itself using the exec () system call a program from a file in the access rights of which the user identifier substitution bit is set (SUID-bit, denoted by s in the symbolic notation of access rights). A process launched from this file will receive the executable owner identifier (EUID) of the file instead of the parent process's owner, so the process UID retains information about who actually started the program.
+  In modern UNIX systems, there is one more additional attribute - SetGID, a bit of substitution of the group identifier. This mechanism works in exactly the same way as substituting a user ID, with the difference that a process launched from a file with the SetGID attribute receives the group ID of the owner of the file, but its UID remains unchanged. Using SetGID allows you to very flexibly control the escalation situation of a process.
+  Of particular importance are the identifier substitution attributes (SetUID and SetGID) installed on directories - for directories, execution rights are also used, although they have a different meaning than for executable files. The SetGID attribute on a directory indicates that files and subdirectories created within that subdirectory by any process will receive the same group ID as the directory itself. Moreover, subdirectories will also inherit the SetGID attribute. This mechanism is used to organize shared directories, files in which should be available on an equal basis to a group of users. The SetUID attribute set on the directory is simply ignored.
   
-  
-  
-  
+17. What file attributes should be present in the command script?
+Some filesystems support additional attributes. In particular, some Linux-native filesystems support several attributes that you can adjust with the "chattr" command. 
+  The files and directories can have following attributes:
+```
+  a - append only: this attribute allows a file to be added to, but not to be removed. It prevents accidental or malicious changes to files that record data, such as log files.
+  c - compressed: it causes the kernel to compress data written to the file automatically and uncompress it when it’s read back.
+  d - no dump: it makes sure the file is not backed up in backups where the dump utility is used
+  e - extent format: it indicates that the file is using extents for mapping the blocks on disk.
+  i - immutable: it makes a file immutable, which goes a step beyond simply disabling write access to the file. 
+  The file can’t be deleted, links to it can’t be created, and the file can’t be renamed.
+  j - data journaling: it ensures that on an Ext3 file system the file is first written to the journal and only after that to the data blocks on the hard disk.
+  s - secure deletion: it makes sure that recovery of a file is not possible after it has been deleted.
+  t - no tail-merging: Tail-merging is a process in which small data pieces at a file’s end that don’t fill a complete block are merged with similar pieces of data from other files.
+  u - undeletable: When a file is deleted, its contents are saved which allows a utility to be developed that works with that information to salvage deleted files.
+  A - no atime updates: Linux won’t update the access time stamp when you access a file.
+  D - synchronous directory updates: it makes sure that changes to files are written to disk immediately, and not to cache first.
+  S - synchronous updates: the changes on a file are written synchronously on the disk.
+  T - and top of directory hierarchy: A directory will be deemed to be the top of directory hierarchies for the purposes of the Orlov block allocator.
+```
+  To list attribute of files and sub-directory of the current directory, do "lsattr" command:
+```
+  lsattr -a
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Attribute.png"><br>
   
 
   
