@@ -6,7 +6,7 @@
 ***Result of task 5.2*** <br>
 
 <details><summary>TASK 2</summary><br>
-**1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them?** <br>
+1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them <br>
   /etc/passwd - a file containing a list of user accounts (accounts) in text format. It is the first and main source of information about operating system user rights.<br> 
   
   ```  
@@ -209,6 +209,53 @@ From the man page of passwd command :
  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_del.png"><br> 
   
 11. Display the extended format of information about the directory, tell about the information columns displayed on the terminal.<br>
+  To display the extended directory information format, execute the command:
+  ```
+  ls -lahi
+  -l - --format=long - output (in one-column format) file type, file permissions, number of links to file, owner name, group name, file size (in bytes), timestamp and file name;
+  -a --all - include files with names starting with a dot in the list (show hidden files);
+  -h --human-readable - add size letter to each file size;
+  -i --inode - print the inode number (also called file serial number and index number) of each file to the left of its name.
+  ```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/ls_lahi.png"><br> 
+  1 - total size of listed directory;
+  2 - inodex index (This number uniquely identifies each file on each file system);
+  3 - rights of the files (r-read, w-write, x-execute);
+  4 - the number of links to a file/folder;
+  5 - unique identifier of the owner (UID);
+  6 - group owner id (GID);
+  7 - size of object;
+  8 - latest creation/modification date;
+  9 - file or folder name.
+  
+12. What access rights exist and for whom (i. e., describe the main roles)? Briefly describe the acronym for access rights.<br>
+  Initially, each file had three access parameters. Here they are:
+  1) Read - allows you to receive the contents of the file, but not for writing. For a directory, allows you to get a list of files and directories located in it;
+  2) Write - allows you to write new data to a file or modify existing ones, and also allows you to create and modify files and directories;
+  3) Execution - You cannot execute a program if it does not have an execution flag. This attribute is set for all programs and scripts, it is with the help of it that the system can understand that this file needs to be run as a program.
+  
+  But all these rights would be meaningless if applied to all users at once. Therefore, each file has three categories of users, for which you can set different combinations of access rights:
+  1) Owner - a set of rights for the owner of the file, the user who created it or is now set by its owner. Usually the owner has all the rights, read, write and execute.
+  2) Group - any user group that exists in the system and is associated with a file. However, this can only be one group, and it is usually the owner's group, although a different group can be assigned to a file.
+  3) Others - all users, except for the owner and users included in the file group.
+  
+  It is with the help of these sets of permissions that the permissions of files in linux are established. Each user can only get full access to files that he owns or those that he is allowed to access. Only the Root user can work with all files, regardless of their set of permissions.
+  What the conditional values of the rights flags mean:<br>
+  ```
+  --- -no right;
+  --x - only execution of the file is allowed as a program, but not modification or reading;
+  -w- - only writing and modifying the file is allowed;
+  -wx - change and execution are allowed, but in the case of a directory, you cannot see its contents;
+  r-- - read-only rights;
+  r-x - read only and execute, no write access;
+  rw- - read and write permissions, but no execution;
+  rwx - all rights;
+  --s - the SUID or SGID bit is set, the first is displayed in the field for the owner, the second for the group;
+  --t - sticky-bit is installed, which means users cannot delete this file.
+  ```
+  
+13. What is the sequence of defining the relationship between the file and the user? <br>
+  
   
   
 
