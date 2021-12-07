@@ -344,6 +344,8 @@ Some filesystems support additional attributes. In particular, some Linux-native
   To list attribute of files and sub-directory of the current directory, do "lsattr" command:
 ```
   lsattr -a
+  or
+  lsattr -al
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Attribute.png"><br>
   
