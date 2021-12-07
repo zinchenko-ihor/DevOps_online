@@ -290,6 +290,7 @@ The action can be one of two things, either add - sign "+", or remove - sign - "
   Permissions can be expressed not only in the form of a sequence of letters, but also in octal, for example, for -rw-rw-r--, the entry will look like this: 0664. Permissions for a file by default in Linux in octal format are written as 0666, and for the directory 0777. In this case, 0 does not mean anything, and each digit means a set of rights for a specific group. First the owner, then the group, and then everyone else. But thanks to the mask in Linux, by default, the file permissions are set to 0664, and for the directory 0775. It is the setting of these values that the "umask" command affects.
   The "umask" command sets the mask of rights for new files and directories. When creating any file, the operating system asks for a rights mask and calculates the mask based on it. The default mask is 0002. The first digit does not affect anything and is a relic of the C language syntax. Further, the numbers are similar to the access rights in Linux: the first is the owner, the second is the group, and the third is all the rest. This mask is used to calculate file permissions.
 In fact, it turns out that the mask contains permissions that will not be set for the file. Therefore, the default permissions for the file will be 666 - 002 = 664, and for the directory - 777 - 002 = 775.<br>
+  
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/umask.png"><br> 
   
 Utility options:
