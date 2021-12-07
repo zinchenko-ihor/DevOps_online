@@ -6,7 +6,7 @@
 ***Result of task 5.2*** <br>
 
 <details><summary>TASK 2</summary><br>
-1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them <br>
+1. Analyze the structure of the /etc/passwd and /etc/group file, what fields are present in it, what users exist on the system? Specify several pseudo-users, how to define them. <br>
   /etc/passwd - a file containing a list of user accounts (accounts) in text format. It is the first and main source of information about operating system user rights.<br> 
   
   ```  
@@ -28,9 +28,9 @@ there is a serious threat of using a simple brute-force attack to crack a passwo
 These files are not readable by ordinary users. This approach is called a hidden password mechanism.
 The /etc/passwd file is a text file with one entry per line representing the user account. To view the contents of a file, use a text editor or, for example, the cat command:
   
-  ```
-  cat /etc/passwd
-  ```
+```
+ cat /etc/passwd
+```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/cat_etc_passwd.png"><br>
 /etc/group contains entries for all groups on the system. Each of its lines contains:
@@ -39,9 +39,9 @@ The /etc/passwd file is a text file with one entry per line representing the use
 - group ID, or GID;
 - list of member names, separated by commas.
 Recording example:
-  ```
+```
   bin:x:1:root,bin,daemon
-  ```
+```
 To view the contents of a file, use a text editor or, for example, the cat command:
 ```
 cat /etc/group
@@ -230,14 +230,14 @@ From the man page of passwd command :
   
 12. What access rights exist and for whom (i. e., describe the main roles)? Briefly describe the acronym for access rights.<br>
   Initially, each file had three access parameters. Here they are:
-  1) Read - allows you to receive the contents of the file, but not for writing. For a directory, allows you to get a list of files and directories located in it;
-  2) Write - allows you to write new data to a file or modify existing ones, and also allows you to create and modify files and directories;
-  3) Execution - You cannot execute a program if it does not have an execution flag. This attribute is set for all programs and scripts, it is with the help of it that the system can understand that this file needs to be run as a program.
+  - Read - allows you to receive the contents of the file, but not for writing. For a directory, allows you to get a list of files and directories located in it;
+  - Write - allows you to write new data to a file or modify existing ones, and also allows you to create and modify files and directories;
+  - Execution - You cannot execute a program if it does not have an execution flag. This attribute is set for all programs and scripts, it is with the help of it that the system can understand that this file needs to be run as a program.
   
   But all these rights would be meaningless if applied to all users at once. Therefore, each file has three categories of users, for which you can set different combinations of access rights:
-  1) Owner - a set of rights for the owner of the file, the user who created it or is now set by its owner. Usually the owner has all the rights, read, write and execute.
-  2) Group - any user group that exists in the system and is associated with a file. However, this can only be one group, and it is usually the owner's group, although a different group can be assigned to a file.
-  3) Others - all users, except for the owner and users included in the file group.
+  - Owner - a set of rights for the owner of the file, the user who created it or is now set by its owner. Usually the owner has all the rights, read, write and execute.
+  - Group - any user group that exists in the system and is associated with a file. However, this can only be one group, and it is usually the owner's group, although a different group can be assigned to a file.
+  - Others - all users, except for the owner and users included in the file group.
   
   It is with the help of these sets of permissions that the permissions of files in linux are established. Each user can only get full access to files that he owns or those that he is allowed to access. Only the Root user can work with all files, regardless of their set of permissions.
   What the conditional values of the rights flags mean:<br>
