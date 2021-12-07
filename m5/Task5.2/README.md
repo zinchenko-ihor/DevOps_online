@@ -96,7 +96,9 @@ When we run the "useradd" command in the Linux terminal, it does the following b
 - it edits the files /etc/passwd, /etc/shadow, /etc/group and /etc/gshadow for the newly created user account;
 - creates and populates the home directory for the new user;
 - sets permissions and ownership of the home directory. <br>
+  
 Useradd command options:<br>
+```  
   -c, --comment (Any text string. Typically, this is a short description of the account, and is currently used as a field for the user's first and last name); <br>
   -b, --base-dir (The default base directory for the system if -d HOME_DIR is not specified. BASE_DIR is concatenated with the account name to define the home directory. If the -m option is not used, BASE_DIR must exist); <br>
   -D, --defaults (See below, the subsection "Changing the default values"); <br>
@@ -115,7 +117,7 @@ Useradd command options:<br>
   -s, --shell (The name of the user's login shell. If set to empty, the default login shell will be used); <br>
   -u, --uid (The numeric value of the user identifier (ID). It must be unique unless the -o option is used. The value must be non-negative); <br>
   -U, --user-group (reate a group with the same name as the user, and add the user to this group).<br> 
-  
+```  
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/Create_new_user1.png"><br>
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/New_users.png"><br>
   
@@ -126,6 +128,7 @@ Useradd command options:<br>
   sudo usermod -l [username]
   ```
   Usermod command options:<br>
+  ```
   -a, --append (Add user to additional group (s). Use only in conjunction with the -G parameter); <br>
   -c, --comment (The new value for the comment field in the user password file. Usually it is changed with the "chfn" program); <br>
   -d, --home (The home directory of the new user); <br>
@@ -147,7 +150,7 @@ Useradd command options:<br>
   -w, --add-sub-gids (Add a range of subordinate gids to the user's account); <br>
   -W, --del-sub-gids (Remove a range of subordinate gids from the user's account); <br>
   -Z, --selinux-user (New SELinux user for user login). <br>
-  
+  ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/usermod.png"><br>
   
 7. What is skell_dir? What is its structure? <br>
