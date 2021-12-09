@@ -21,7 +21,8 @@ Zombie (Z)
 The uninterruptible sleeping state will only wait for the resources to be available before it transit into a runnable state, and it doesn’t react to any signals. 
 On the other hand, the interruptible sleeping state (s) will react to signals and the availability of resources.
   3) From a running or runnable state, we could put a process into the stopped state (T) using the SIGSTOP or SIGTSTP signals. 
-  4) When a process has completed its execution or is terminated, it’ll send the SIGCHLD signal to the parent process and go into the zombie state. 
+  4) When a process has completed its execution or is terminated, it’ll send the SIGCHLD signal to the parent process and go into the zombie state.<br>
+
 Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state of a process:
   
 ```
