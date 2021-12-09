@@ -164,8 +164,20 @@ The program can be installed with apt on ubuntu:
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/cpuid.png"><br>
   
-5. Use the ps command to get information about the process. The information should be as follows: the owner of the process, the arguments with which the process was launched for execution, the group owner of this process, etc.
+5. Use the ps command to get information about the process. The information should be as follows: the owner of the process, the arguments with which the process was launched for execution, the group owner of this process, etc. <br>
+PS displays information about a selection of the active processes.  If you want a repetitive update of the selection and the displayed information, use top instead.
+  This version of ps accepts several kinds of options:
+  1) UNIX options, which may be grouped and must be preceded by a dash.
+  2) BSD options, which may be grouped and must not be used with a dash.
+  3) GNU long options, which are preceded by two dashes.
   
+```
+  ps -au
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_au_5.png"><br>
+  
+6.  How to define kernel processes and user processes? <br>
+
  
   
 
