@@ -52,5 +52,72 @@ For BSD formats and when the stat keyword is used, additional characters may be 
                +    is in the foreground process group
 ```
   
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/passwd_cat_devops.png"><br>
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.2/IMG/cat_etc_passwd.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps.png"><br>
+  
+2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current process. <br>
+Pstree command in Linux that shows the running processes as a tree which is a more convenient way to display the processes hierarchy and makes the output more visually appealing. The root of the tree is either init or the process with the given pid.<br>
+  The top/main item in the tree is the parent process of all system processes. In this example, the systemd is the first process to start at boot.
+pstree concatenates identical branches by enclosing them in square brackets and adding an integer to them representing the number of branches. This makes the conclusion more stable and visually appealing.<br>
+  
+  OPTIONS:
+```
+       -a     Show command line arguments.  If the command line of a
+              process is swapped out, that process is shown in
+              parentheses.  -a implicitly disables compaction for
+              processes but not threads.
+       -A     Use ASCII characters to draw the tree.
+       -c     Disable compaction of identical subtrees.  By default,
+              subtrees are compacted whenever possible.
+       -C     Color the process name by given attribute. Currently
+              pstree only accepts the value age which colors by process
+              age.  Processes newer than 60 seconds are green, newer
+              than an hour yellow and the remaining red.
+       -g     Show PGIDs.  Process Group IDs are shown as decimal
+              numbers in parentheses after each process name.  If both
+              PIDs and PGIDs are displayed then PIDs are shown first.
+       -G     Use VT100 line drawing characters.
+       -h     Highlight the current process and its ancestors.  This is
+              a no-op if the terminal doesn't support highlighting or if
+              neither the current process nor any of its ancestors are
+              in the subtree being shown.
+       -H     Like -h, but highlight the specified process instead.
+              Unlike with -h, pstree fails when using -H if highlighting
+              is not available.
+       -l     Display long lines.  By default, lines are truncated to
+              either the COLUMNS environment variable or the display
+              width.  If neither of these methods work, the default of
+              132 columns is used.
+       -n     Sort processes with the same parent by PID instead of by
+              name.  (Numeric sort.)
+       -N     Show individual trees for each namespace of the type
+              specified.  The available types are: ipc, mnt, net, pid,
+              time, user, uts.  Regular users don't have access to other
+              users' processes information, so the output will be
+              limited.
+       -p     Show PIDs.  PIDs are shown as decimal numbers in
+              parentheses after each process name.  -p implicitly
+              disables compaction.
+       -s     Show parent processes of the specified process.
+       -S     Show namespaces transitions.  Like -N, the output is
+              limited when running as a regular user.
+       -t     Show full names for threads when available.
+       -T     Hide threads and only show processes.
+       -u     Show uid transitions.  Whenever the uid of a process
+              differs from the uid of its parent, the new uid is shown
+              in parentheses after the process name.
+       -U     Use UTF-8 (Unicode) line drawing characters.  Under Linux
+              1.1-54 and above, UTF-8 mode is entered on the console
+              with echo -e ' 33%8' and left with echo -e ' 33%@'.
+       -V     Display version information.
+       -Z     Show the current security attributes of the process. For
+              SELinux systems this will be the security context.
+```
+  
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/pstree.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/pstree1.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/pstree2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/pstree3.png"><br>
+  
+3. What is a proc file system? <br>
+  
+
