@@ -328,17 +328,95 @@ Not all sorting methods can be set using hot keys. For example, to identify proc
   - There are 140 possible and two types of priorities: the nice value and real-time priority, which goes from 1 to 99, with 100 to 139 dedicated to user-space.
   - The nice value of a process can have a range between -20 (highest priority) to +19 (lowest priority); by default, its value is 0.
   - If the nice value of a process is lower, it gets a higher priority, which means the CPU will execute that process more often.
-  - But, if the nice value of a process is higher, it will be assigned a lower priority, which means that the CPU will execute that process less often (whenever it gets an opportunity).
+  - But, if the nice value of a process is higher, it will be assigned a lower priority, which means that the CPU will execute that process less often (whenever it gets an opportunity). <br>
+  
+  Linux uses the "nice" and "renice" programs to set priorities. To get us the data output of interest, use the "ps -alx" command.
+  
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_alx.png"><br>
+  
+We can see that we received slightly different information. A column labeled "NI" and a column "PRI" appeared. We can see that the top processes are executed with nice 0, i.e. this is the default authority that is assigned unless otherwise stated. Let's take a different version of the ps command, with different keys.
+  
+```
+  ps -eo user,pid,pcpu,nice,comm
+  -e - switch to show all;
+  -o - output, i.e. what information is needed, then the command lists the necessary information (columns).
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_NI_prior.png"><br>
+  
+By default, nice sets the priority to 10. To start the process with a nice value other than 10, you can use the -n switch.
+
+```
+  nice -n 15 ping 8.8.8.8
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/nice_n.png"><br>
+  
+To change the priority value of a process, we can use the renice command with the nice value and the PID of the process.
+  
+```
+  sudo renice -n 5 -p 1650
+  sudop renice -n -1 -p 1650
  
+  -n - priority;
+  -p - PID process;
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/renice_n_5.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_PR_NI.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_PR_20.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_PR_19_NI_1.png"><br>
+15.  Can I change the priority of a process using the top command? If so, how? <br>
+  Alternatively, you can use top or htop utilities to view Linux processes nice values. We can change priority in TOP with "r" key.
+  
+```
+  sudo top 
+  Press :R";
+  Enter the PID of the process whose priority you want to change, press ENTER.
+  Enter the new priority value, press ENTER.
+  To close up, press Q.
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/renice_top_7.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/renice_top_7_1.png"><br>
 
+16. Examine the kill command. How to send with the kill command process control signal? Give an example of commonly used signals. <br>
+Each process has a unique identifier. To kill running Linux processes, we can use the "kill" command.Besides stopping the process, the kill command can perform several other functions. For example, send a signal to a process. By default, this is interpreted as a TERM signal, which terminates the process. <br>
+There are several signals available in Linux that can be used to interrupt, terminate, or suspend processes. Here's an example of using the command:
+```
+  kill -l
+```
+  This command will display a man page with various kill signals with their names and corresponding numbers.
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_l.png"><br>
   
-  
-  
-
+To kill a process with a specific PID, use the following command:
  
-  
+```
+  kill [PID]
+```
+Since no signal is specified, it will be a SIGTERM signal. Sometimes this may not work; in this case, you may have to forcefully kill the process.
+In such cases, you can use the command format as shown below:
 
+```
+  kill [Signal_option] PID
+```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_proc.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_proc1.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_s_SigKill.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_stop_ping.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_stop_ping2.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kill_stop_ping1.png"><br>
   
+17. Commands jobs, fg, bg, nohup. What are they for? Use the sleep, yes command to demonstrate the process control mechanism with fg, bg. <br>
+Commands issued from the console using the ampersand run in the background and are called "jobs". We can say that tasks are processes tied to the shell. In addition to the traditional PID, such tasks also have their own numbering, starting with one. You can view the running tasks of the interpreter using the "jobs" command.
   
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/jobs.png"><br>
   
+The "top" does not return control to the shell. You can either exit the program (by pressing q) or stop the process with the key combination ctrl + z (do not confuse the combinations ctrl + c - end the process and ctrl + z - stop the process). In order to resume the work of this process (task) there are two commands: fg and bg, short for the English words foreground (foreground) and background (background). The syntax is simple: fg is the task number. The fg command works not only with stopped tasks, but with tasks in general.<br>
+  The fg command without a parameter will resume the work of the last process stopped by the combination ctrl + z, and if there are none, it will bring to the fore the last task (the task with a higher sequence number). The job that will be restored (displayed) by the fg command without a parameter is marked with a + sign in the output of the jobs command. The bg command is designed to restore the operation of stopped processes (tasks) in the background.<br>
+  
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/bg.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/fg.png"><br>
+  
+"Nohup" is a utility that allows you to run a hang-protected command with an output to a non-tty (ignores the loss of SIGHUP communications). Some work or team takes a long time. If you are not sure when the task will end, it is best to leave the work in the background. All processes (except at and batch) are terminated on logout. The "nohup" utility allows you to keep the process running in the background when you log off. <br>
+  
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/nohup.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/nohup1.png"><br>
 
+</details>
