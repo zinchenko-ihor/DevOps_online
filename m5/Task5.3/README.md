@@ -53,6 +53,7 @@ For BSD formats and when the stat keyword is used, additional characters may be 
 ```
   
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/states_ps_aux.png"><br>
   
 2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current process. <br>
 Pstree command in Linux that shows the running processes as a tree which is a more convenient way to display the processes hierarchy and makes the output more visually appealing. The root of the tree is either init or the process with the given pid.<br>
@@ -244,14 +245,14 @@ As soon as you will run this command it will open an interactive command mode wh
   USER: User name of owner of task.
   PR: Stands for priority of the task.
   NI: Represents a Nice Value of task. A Negative nice value implies higher priority, and positive Nice value means lower priority.
-  VIRT: Total virtual memory used by the task.
+  VIRT: Virtual memory that the process is using.
   RES: Resident Memory Size.
-  SHR: Represents the Shared Memory size (kb) used by a task.
-  S: States of process.
-  %CPU: Represents the CPU usage.
-  %MEM: Shows the Memory usage of task.
-  TIME+: CPU Time, the same as ‘TIME’, but reflecting more granularity through hundredths of a second.
-  COMMAND: Name of process.
+  SHR: The total amount of memory this process shares with othersю
+  S: The current status of the process: R - running; S - sleeping, Z - zombie.
+  %CPU: Percentage of used CPU time.
+  %MEM: Percentage of RAM used by the process.
+  TIME+: CPU Time, the duration of the process since the start.
+  COMMAND: The name of the command (program) that initiated the process.
 ```
   
 11. Display the processes of the specific user using the top command. <br>
@@ -277,12 +278,56 @@ TASK_Area_Commands
 COLOR_Mapping <Ret>, a, B, b, H, M, q, S, T, w, z, 0 - 7 
 COMMANDS_for_Windows -, _, =, +, A, a, G, g, w
 ```
+Interactive commands that you can execute while the program is running:
+  
+```
+  h - displays help for the utility;
+  q or Esc - exit top;
+  A - choice of color scheme;
+  d or s - change the information update interval;
+  H - display process streams;
+  k - send a termination signal to the process;
+  W - write the current program settings to the configuration file;
+  Y - view additional information about the process, open files, ports, logs, etc.
+  Z - change the color scheme;
+  l - hide or display information about the average load on the system;
+  m - turn off or switch the display mode of information about memory;
+  x - highlight in bold the column by which sorting is performed;
+  y - highlight in bold the processes that are running at the moment;
+  z - switch between color and monochrome modes;
+  c - switching the command output mode, the full path and only the command are available;
+  F - setting fields with information about processes;
+  o - filtering processes by an arbitrary condition;
+  u - filtering processes by username;
+  V - displaying processes in the form of a tree;
+  i - switching the display mode of processes that are not currently using processor resources;
+  n - the maximum number of processes to display in the program;
+  L - search by word;
+  <> - move the sorting field to the right and left;
+```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_i_12.png"><br>
   
 13. Sort the contents of the processes window using various parameters (for example, the amount of processor time taken up, etc.) <br>
+Basic sorting of data is carried out by the level of CPU time utilization, also known as% CPU. To start sorting by memory (% MEM), just execute "Shift + M" while the command is up. If you are interested in which of the processes takes the longest, press "Shift + T", and display the information of interest in the TIME+ column. You can sort by their number (PID) by typing "Shift + N" on the keyboard. Use "Shift + P" to return to sorting by CPU usage.
+
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_sort_pid.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_sort_cpu.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_sort_mem.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_sort_time.png"><br>
   
+Not all sorting methods can be set using hot keys. For example, to identify processes that consume more SWAP, use the field selection menu, which is invoked by the "Shift + F" combination. Using the navigation keys, we find SWAP (or any other required parameter), with the “d” key we fix its addition to the general table of the top command (as confirmation of your choice, the “*” symbol will appear next to it). To set sorting by SWAP, here we press "s" and exit the menu (ESC). Ready!<br>
   
- 
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/add_swap.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_sort_swap.png"><br>
+  
+14. Concept of priority, what commands are used to set priority? <br>
+  When you run a program in Linux, such as the vim editor, the system creates an instance of the program. The process is the running instance, or concrete occurrence of an object, in a program. Every process requires a certain amount of system resources, like central processing unit (CPU) time and random access memory (RAM), to be able to perform its tasks. Each process is assigned a process priority, which determines how much CPU or processor time is allocated to it for execution.<br>
+  Note that there are hundreds of processes running in a Linux system at any point in time. Sometimes they all get sufficient CPU time for execution and sometimes they don't, which is when the idea of process priority comes in handy. The process priority determines which process gets more CPU time and which processes can wait for execution at a later, less-demanding time.<br>
+  Linux allows us to set a nice value on a per-user basis, which may differ from the process priority. The nice value is how much priority the Linux kernel will grant to each named user; by comparison, the process priority is the actual priority of a running process. Note that the nice value only controls how much CPU time each process is allocated and not how much memory can be used or which input/output (I/O) devices can be used. <br>
+  - There are 140 possible and two types of priorities: the nice value and real-time priority, which goes from 1 to 99, with 100 to 139 dedicated to user-space.
+  - The nice value of a process can have a range between -20 (highest priority) to +19 (lowest priority); by default, its value is 0.
+  - If the nice value of a process is lower, it gets a higher priority, which means the CPU will execute that process more often.
+  - But, if the nice value of a process is higher, it will be assigned a lower priority, which means that the CPU will execute that process less often (whenever it gets an opportunity).
  
 
   
