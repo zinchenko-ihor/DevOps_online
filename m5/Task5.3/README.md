@@ -234,7 +234,57 @@ User processes - all others:
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/see_also_9.png"><br>
   
 10. What information does top command display? <br>
+top command is used to show the Linux processes. It provides a dynamic real-time view of the running system. Usually, this command shows the summary information of the system and the list of processes or threads which are currently managed by the Linux Kernel.<br>
+As soon as you will run this command it will open an interactive command mode where the top half portion will contain the statistics of processes and resource usage. And Lower half contains a list of the currently running processes. Pressing q will simply exit the command mode.<br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_10.png"><br>
+ 
+  Here:
+```
+  PID: Shows task’s unique process id.
+  USER: User name of owner of task.
+  PR: Stands for priority of the task.
+  NI: Represents a Nice Value of task. A Negative nice value implies higher priority, and positive Nice value means lower priority.
+  VIRT: Total virtual memory used by the task.
+  RES: Resident Memory Size.
+  SHR: Represents the Shared Memory size (kb) used by a task.
+  S: States of process.
+  %CPU: Represents the CPU usage.
+  %MEM: Shows the Memory usage of task.
+  TIME+: CPU Time, the same as ‘TIME’, but reflecting more granularity through hundredths of a second.
+  COMMAND: Name of process.
+```
   
+11. Display the processes of the specific user using the top command. <br>
+To show all processes for a specific user using top command:
+  
+```
+  top -u {username}
+```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_U.png"><br>
+  
+12. What interactive commands can be used to control the top command? Give a couple of examples. <br>
+Listed below is a brief index of interactive commands within categories.<br>
+Some commands appear more than once -- their meaning or scope may vary depending on the context in which they are issued.<br>
+
+```
+GLOBAL_Commands <Ret/Sp> ?, =, A, B, d, G, h, I, k, q, r, s, W, Z 
+SUMMARY_Area_Commands l, m, t, 1 
+TASK_Area_Commands 
+  Appearance: b, x, y, z 
+  Content: c, f, H, o, S, u 
+  Size: #, i, n 
+  Sorting: <, >, F, O, R
+COLOR_Mapping <Ret>, a, B, b, H, M, q, S, T, w, z, 0 - 7 
+COMMANDS_for_Windows -, _, =, +, A, a, G, g, w
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/top_i_12.png"><br>
+  
+13. Sort the contents of the processes window using various parameters (for example, the amount of processor time taken up, etc.) <br>
+  
+  
+ 
+ 
+
   
   
   
