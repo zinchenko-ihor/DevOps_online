@@ -165,7 +165,7 @@ The program can be installed with apt on ubuntu:
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/cpuid.png"><br>
   
 5. Use the ps command to get information about the process. The information should be as follows: the owner of the process, the arguments with which the process was launched for execution, the group owner of this process, etc. <br>
-PS displays information about a selection of the active processes.  If you want a repetitive update of the selection and the displayed information, use top instead.
+PS displays information about a selection of the active processes.  If you want a repetitive update of the selection and the displayed information, use top instead.<br>
   This version of ps accepts several kinds of options:
   1) UNIX options, which may be grouped and must be preceded by a dash.
   2) BSD options, which may be grouped and must not be used with a dash.
@@ -173,10 +173,71 @@ PS displays information about a selection of the active processes.  If you want 
   
 ```
   ps -au
+  ps -aux
+  
+ -a - also shows processes started by other users;
+ -x - also shows processes that do not have a controlled terminal or are started from another terminal;
+ -u - Prints the username, started the process, and start time for each of the processes.
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_au_5.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_aux.png"><br>
   
 6.  How to define kernel processes and user processes? <br>
+In modern linux, unlike many other Unixes, there are so-called "kernel processes". Judging by these, these are just parts of the kernel itself, functions of the general kernel code, working in the same address space and with the same privileges as the rest of the kernel code. Their only difference from other parts of the kernel is that separate entries are created for them in the process table. They are made by processes so that their execution occurs independently of the rest of the kernel, with a lower priority. Their execution takes place under the control of the scheduler, like all other processes in the system.<br>
+  The linux kernel processes are started by the kernel itself, and the kthread process with PID = 2 is assigned to the parent process that allegedly spawned them. Thus, the processes of the kernel should be considered the process itself with PID = 2, as well as processes for which the PPID (i.e. the pid of the parent) is 2.<br>
+
+```
+  sudo ps --ppid=2 --pid=2
+```
+
+User processes - all others:
+  
+```
+  sudo ps -N --ppid=2 --pid=2
+```
+  Also, by default, pstree without parameters shows only the tree of processes spawned by init, i.e. user processes. Kernel processes will show sudo pstree 2.<br>
+  
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kernel_process.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/kernel_process1.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/user_process1.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/user_process.png"><br>
+  
+7. Print the list of processes to the terminal. Briefly describe the statuses of the processes. What condition are they in, or can they be arriving in? <br>
+  Print a list of processes in the terminal using the command:
+```
+  ps -aux
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_aux_7.png"><br>
+  
+8.  Display only the processes of a specific user. <br>
+  To see only the processes owned by a specific user on Linux run:
+  
+```
+  ps -u {username}
+```
+  You can get a list of every process running as {username} (real [RUID] & effective ID [EUID]) in user format:
+
+```
+  ps -U {username} -u {username}
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_u_devops.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ps_U.png"><br>
+  
+9. What utilities can be used to analyze existing running tasks (by analyzing the help for the ps command)? <br>
+  Using the man ps command, we can find information on additional utilities to view the status of processes:
+```
+  pgrep - looks through the currently running processes and lists the process IDs which match the selection criteria to stdout.
+  pstree - shows running processes as a tree.
+  top - provides a dynamic real-time view of a running system.
+  proc - process information pseudo-filesystem.
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/see_also_9.png"><br>
+  
+10. What information does top command display? <br>
+  
+  
+  
+  
 
  
   
