@@ -119,5 +119,18 @@ pstree concatenates identical branches by enclosing them in square brackets and 
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/pstree3.png"><br>
   
 3. What is a proc file system? <br>
+  Procfs is a special filesystem used on UNIX-like operating systems. Allows you to access information from the kernel about system processes. Required to execute commands such as ps, w, top. It is usually mounted on / proc. procfs creates a two-level representation of processspaces. At the top level, processes are directories named according to their pid. Also at the top level is a link to the directory corresponding to the process that is executing the request; it can have a different name on different operating systems (curproc on FreeBSD, self on Linux). <br>
+  Proc file system (procfs) is virtual file system created on fly when system boots and is dissolved at time of system shut down.
+It contains useful information about the processes that are currently running, it is regarded as control and information center for kernel.
+The proc file system also provides communication medium between kernel space and user space.<br>
+If you list the directories, you will find that for each PID of a process there is dedicated directory.
+You can check directories only on terminal using:
+  
+```
+  ls /proc
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ls_proc.png"><br>
+  
+4. 
   
 
