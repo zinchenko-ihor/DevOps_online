@@ -368,7 +368,7 @@ To change the priority value of a process, we can use the renice command with th
   
 ```
   sudo top 
-  Press :R";
+  Press "R";
   Enter the PID of the process whose priority you want to change, press ENTER.
   Enter the new priority value, press ENTER.
   To close up, press Q.
