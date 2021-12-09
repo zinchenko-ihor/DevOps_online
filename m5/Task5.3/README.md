@@ -131,6 +131,45 @@ You can check directories only on terminal using:
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/ls_proc.png"><br>
   
-4. 
+4. Print information about the processor (its type, supported technologies, etc.).<br>
+The cpu information includes details about the processor, like the architecture, vendor name, model, number of cores, speed of each core etc.
+There are quite a few commands on linux to get those details about the cpu.<br>
+  The /proc/cpuinfo file contains details about individual cpu cores. Every processor or core is listed separately the various details about speed, cache size and model name are included in the description. Output its contents with command "cat".
+
+```
+  cat /proc/cpuinfo
+```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/cpuinfo.png"><br>\
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/cpuinfo1.png"><br>
+  
+lscpu is a small and quick command that does not need any options. It would simply print the cpu hardware details in a user-friendly format.
+
+```
+  lscpu
+```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/lscpu.png"><br>
+  
+The lshw command can display limited information about the cpu. lshw by default shows information about various hardware parts, and the '-class' option can be used to pickup information about a specific hardware part.
+
+```
+  lshw -class processor
+``` 
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/lshw_class.png"><br>
+  
+The cpuid command fetches CPUID information about Intel and AMD x86 processors.
+The program can be installed with apt on ubuntu:
+  
+```
+  sudo apt install cpuid
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/cpuid.png"><br>
+  
+5. Use the ps command to get information about the process. The information should be as follows: the owner of the process, the arguments with which the process was launched for execution, the group owner of this process, etc.
+  
+ 
+  
+
+  
+  
   
 
