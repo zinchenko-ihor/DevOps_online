@@ -420,3 +420,6 @@ The "top" does not return control to the shell. You can either exit the program 
    <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part1/nohup1.png"><br>
 
 </details>
+  
+<details><summary>PART 2</summary><br>
+1. How many states could has a process in Linux? <br> 
