@@ -499,6 +499,43 @@ To implement port forwarding for an SSH client from a host machine on a Linux gu
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/port_forwarding_ssh.png"><br>
   
 5. Intercept (capture) traffic (tcpdump, wireshark) while authorizing the remote client on the server using ssh, telnet, rlogin. Analyze the result.
+Telnet is a network utility that allows you to connect to a remote port on any computer and establish an interactive communication channel, for example, to send commands or receive information. We can say that this is a universal browser in the terminal that can work with a variety of network protocols.<br>
+This utility was very often used before, for remote control of a Linux computer, but then it was replaced by the secure SSH protocol. But telnet is still used, for example, for network testing, port testing, and for interacting with various IoT devices and routers.<br>
+```
+  telnet 192.168.152.141 23
+  or
+  telnet>
+      >open
+    (to)
+      > 192.168.152.141
+    login:
+    password:
+```
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/telnet.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/telnet1.png"><br>
+  SSH is the main protocol for remotely managing servers based on the Linux operating system.On Linux, SSH connections are made using the ssh utility. To connect to a remote computer, its syntax will look like this:
+```
+  ssh devops@192.168.152.141
+  devops - user name
+  192.168.152.141 -destination ip-address
+```
   
+"Tcpdump" is a UNIX utility that allows you to intercept and analyze network traffic passing through the computer on which this program is running. To run the program, you need superuser rights and direct access to the device.
+For SSH use a command:
+```
+  sudo tcpdump -vv -i any -nn port 22 -w dump.pcap
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/tcpdump_22.png"><br>
   
+For TELNET use a command:
+```
+  sudo tcpdump -vv -i any -nn port 23 -w dump_23.pcap
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/tcpdump_23.png"><br> 
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/tcpdump.png"><br> 
+  
+To analyze the traffic captured by the tcpdump utility, we use the wireshark program.<br>
+  
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/wireshark_22.png"><br> 
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m5/Task5.3/IMG/Part2/wireshark_23.png"><br> 
   
