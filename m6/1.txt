@@ -1,0 +1,11 @@
+https://www.tecmint.com/setup-a-dns-dhcp-server-using-dnsmasq-on-centos-rhel/
+https://qastack.ru/unix/50602/cant-ifdown-eth0-main-interface
+https://wiki.merionet.ru/servernye-resheniya/33/kak-perezagruzit-set-v-ubuntu/
+https://losst.ru/nastrojka-seti-iz-konsoli-ubuntu
+https://sysadmin-note.ru/article/ustanovka-i-nastrojka-dhcp-servera-v-ubuntu/
+https://infoit.com.ua/linux/ubuntu/kak-ustanovit-i-nastroit-dnsmasq-na-ubuntu-18-04-lts/
+https://superuser.com/questions/1279204/setting-up-proxy-vm-with-virtualbox-dns-problems
+https://unix.stackexchange.com/questions/563148/redirect-network-from-vm1-to-vm2-using-iptables
+https://unix.stackexchange.com/questions/563148/redirect-network-from-vm1-to-vm2-using-iptables
+https://superuser.com/questions/1279204/setting-up-proxy-vm-with-virtualbox-dns-problems
+https://losst.ru/marshrutizatsiya-v-linux
