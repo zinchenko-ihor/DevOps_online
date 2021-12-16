@@ -1,6 +1,6 @@
-<h4 align="center"> 
+<h2 align="center"> 
   <img alt="Linux Network" src="https://habrastorage.org/r/w780/getpro/habr/post_images/99e/aec/618/99eaec6188909b7d374462942df1baa7.jpg" width="500"> 
-</h4>
+</h2>
 <h2 align="center"> Networking with Linux </h2>
 
 ***Result of task 6.1*** <br>
