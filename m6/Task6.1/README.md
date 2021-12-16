@@ -16,16 +16,16 @@
 Two network interfaces are created on the VM1 virtual machine. One is connected via NAT, the second is for the internal network (intnet).<br>
 The second virtual machine has one network interface only inside the network (intnet). VM1 acts as a default gateway for VM2.<br>
 
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/net_1_VM1.png"><br>
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/net_2_VM2.png"><br>
-<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/net_1_VM2.png"><br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/net_1_VM1.png"><br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/net_2_VM2.png"><br>
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/net_1_VM2.png"><br>
 
   2.1 Configure interface enp0s8 on VM1:
 ```
   sudo ip addr add 192.168.1.1/255.255.255.0 broadcast 192.168.1.255 dev enp0s8
   sudo ip link set enp0s8 up
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/interface_8_VM1.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/interface_8_VM1.png"><br>
   
   2.2 Configure interface enp0s3 on VM2:
 ```
@@ -36,14 +36,14 @@ The second virtual machine has one network interface only inside the network (in
     nameserver 8.8.8.8
     nameserver 4.4.4.4
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/add_dns_VM2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/add_dns_VM2.png"><br>
   
   2.3 Enable forwarding on VM1:
   We have to change value 0 on 1 in the file ip_forward
 ```
   sudo nano /proc/sys/net/ipv4/ip_forward
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/ip_forward_set1_VM1.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/ip_forward_set1_VM1.png"><br>
   
   2.4 We have to add IPTABLES rules for forward SSH traffic to host VM2 and MASQUERADE traffic from VM2:
 In the iptables filter, all packets are divided into three similar chains:<br>
@@ -92,21 +92,21 @@ In addition to those listed above, there are two additional chains of rules:
   -o - outgoing network interface;
   -j - select an action if the rule matches.
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/iptables_VM2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/iptables_VM2.png"><br>
   
 3. Check the route from VM2 to Host.<br>
 To check the route to host, use the "traceroute" utility. The traceroute linux command uses UDP packets. She sends a packet with TTL = 1 and looks at the address of the responding node, then TTL = 2, TTL = 3 and so on until it reaches the goal. Three packets are sent each time and the transit time is measured for each of them. The packet is sent to a random port, which is most likely not busy. When the traceroute utility receives a message from the target host that the port is not available, the trace is complete. <br>
 ```
   traceroute 4.4.4.4
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/traceroute_VM2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/traceroute_VM2.png"><br>
   
 4. Check the access to the Internet. <br>
 You can quickly find out if your computer has the Internet using the ping utility.The ping utility is a very simple network diagnostic tool. It allows you to check whether the remote host is available or not and that's it. To do this, the utility checks if the host can respond to network requests using the ICMP protocol. <br>
 ```
   ping 8.8.8.8
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/ping_8.8.8.8_VM2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/ping_8.8.8.8_VM2.png"><br>
   
 5. Determine, which resource has an IP address 8.8.8.8. <br>
 To determine which resource has an IP address of 8.8.8.8, you can use the "whois" utility. <br>
@@ -115,8 +115,8 @@ To determine which resource has an IP address of 8.8.8.8, you can use the "whois
   sudo apt install whois
   whois 8.8.8.8
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/whois_VM2.png"><br>
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/whois_google.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/whois_VM2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/whois_google.png"><br>
   
 6. Determine, which IP address belongs to resource epam.com. <br>
 To determine which IP address belongs to the epam.com resource. you can use dig or nslookup utility. <br>
@@ -126,7 +126,7 @@ To determine which IP address belongs to the epam.com resource. you can use dig 
   dig epam.com
   nslookup epam.com
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/nslookup_dig_epam.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/nslookup_dig_epam.png"><br>
   
 7. Determine the default gateway for your HOST and display routing table.<br>
   To define the default gateway for your HOST and display the routing table, you need to use the following commands:
@@ -137,14 +137,14 @@ To determine which IP address belongs to the epam.com resource. you can use dig 
   route  - display routing table
   routel - display extended routing table
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/defgtw_VM1_and_route.png"><br>
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/defaultgtw_VM2_and_route.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/defgtw_VM1_and_route.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/defaultgtw_VM2_and_route.png"><br>
   
 8. Trace the route to google.com. <br>
   To check the route to host google.com, use the "traceroute" utility.
 ```
   traceroute google.com
 ```
-  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/tracert_google.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/tracert_google.png"><br>
 
 </details>
