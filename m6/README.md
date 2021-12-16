@@ -129,3 +129,22 @@ To determine which IP address belongs to the epam.com resource. you can use dig 
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/nslookup_dig_epam.png"><br>
   
 7. Determine the default gateway for your HOST and display routing table.<br>
+  To define the default gateway for your HOST and display the routing table, you need to use the following commands:
+```
+  ip route                  - display info about default gatewey
+  ip route | grep default   - display info only default gateway
+  
+  route  - display routing table
+  routel - display extended routing table
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/defgtw_VM1_and_route.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/defaultgtw_VM2_and_route.png"><br>
+  
+8. Trace the route to google.com. <br>
+  To check the route to host google.com, use the "traceroute" utility.
+```
+  traceroute google.com
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/tracert_google.png"><br>
+
+</details>
