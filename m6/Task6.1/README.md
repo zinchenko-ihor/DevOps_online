@@ -8,7 +8,7 @@
 <details><summary>TASK 6.1</summary><br>
 1. Create virtual machines connection according to figure 1:<br> 
 
- <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/tree/master/m6/Task6.1/IMG/figure_1.png"><br>
+ <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.1/IMG/figure_1.png"><br>
  
 2. VM2 has one interface (internal), VM1 has 2 interfaces (NAT and internal). Configure all network interfaces in order to make VM2 has an access to the Internet 
 (iptables, forward, masquerade).<br>
