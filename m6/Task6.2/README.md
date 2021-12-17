@@ -7,6 +7,7 @@
 
 <details><summary>TASK 6.2</summary><br>
 1. Use already created internal-network for three VMs (VM1-VM3). VM1 has NAT and internal, VM2, VM3 – internal only interfaces.<br> 
+  
 
  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/net_VM3.png"><br>
  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/portfwd_for_VM3.png"><br>
@@ -71,3 +72,15 @@ For configure DHCP on VM1 used DNSMASQ. <br>
     
 3. Check VM2 and VM3 for obtaining network addresses from DHCP server. <br>
 
+  DNS
+```
+  listen-address=192.168.1.1
+  server=192.168.1.1
+  no-hosts
+  no-resolv
+  server=8.8.8.8
+  domain=devops.local
+  address=/VM1/192.168.1.1
+  address=/VM2/192.168.1.42
+  address=/VM3/192.168.1.26
+```
