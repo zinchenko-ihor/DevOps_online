@@ -117,7 +117,8 @@ To configure the DNS server, you need to add such lines to the /etc/dnsmasq.conf
 
 After the DNS settings, you need to restart the dnsmasq service and check the service status.
 ```
-  sudo systemctl reload dnsmasq
+  sudo systemctl stop dnsmasq
+  sudo systemctl start dnsmasq
   sudo systemctl status dnsmasq
 ```
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/dnsmasq_status_after_config_dns.png"><br>
