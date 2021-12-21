@@ -114,6 +114,13 @@ To configure the DNS server, you need to add such lines to the /etc/dnsmasq.conf
   By default, dnsmasq uses the / etc / hosts file to map hostnames to IP addresses, but this can also be changed. If you do not want to use / etc / hosts, you can specify this with the option "no-hosts".devops.local - this is the domain name. 8.8.8.8 - alternative DNS-address.Also add "no-resolv" so dnsmasq does not needlessly read /etc/resolv.conf which only contains the localhost addresses of itself. address=/VM1/192.168.1.1 - this is a type A record. <br>
   
 <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/conf_dns.png"><br>
+
+After the DNS settings, you need to restart the dnsmasq service and check the service status.
+```
+  sudo systemctl reload dnsmasq
+  sudo systemctl status dnsmasq
+```
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/dnsmasq_status_after_config_dns.png"><br>
   
 5. Check VM2 and VM3 for gaining access to DNS server (naming services).
 To check the access to the DNS server we use the ping command and the hostname.
