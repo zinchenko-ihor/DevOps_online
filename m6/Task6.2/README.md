@@ -14,6 +14,10 @@
  
 2. Install and configure DHCP server on VM1. <br>
 For configure DHCP on VM1 used DNSMASQ. <br>
+Dnsmasq has three main subsystems, namely:<br>
+  - DNS Subsystem: Provides caching of A, AAAA, CNAME, and PTR records, as well as DNSKEY and DS records.
+  - DHCP Subsystem: Provides support for DHCPv4, DHCPv6, BOTP, and PXE. You can use both static and dynamic DHCP leases, built-in read-only TFTP server to support network connectivity.
+  - Router Advertisement Subsystem: Provides basic auto-configuration for an IPv6 host.
 
 2.1 Install DNSMASQ. <br>
 ```
@@ -46,7 +50,7 @@ For configure DHCP on VM1 used DNSMASQ. <br>
   
   #DNS server setting:
   #forwardinf DNS
-  8.8.8.8
+  server=8.8.8.8
   ```
   
   After create directory and leases-file/ Then stop services who may be have conflict with DNSMASQ and reload this service
@@ -71,9 +75,31 @@ For configure DHCP on VM1 used DNSMASQ. <br>
     <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/iptables_fwd_VM3.png"><br>
     
 3. Check VM2 and VM3 for obtaining network addresses from DHCP server. <br>
-
-  DNS
+To get VM2 and VM3 ip addresses from the dhcp server, you need to set the auto-obtaining network address parameter in the network settings file / etc / network / interfaces:
 ```
+  auto enp0s3
+  iface enp0s3 inet dhcp
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/chng_dhcp_VM2_VM3.png"><br>
+  
+Next, you need to reboot the interface so that it receives the updated IP address from the dhcp server.
+```
+  sudo apt install ifupdown -y
+  sudo ifdown enp0s3 && sudo ifup enp0s3
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/get_ip_dhcp_VM2.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/get_ip_dhcp_VM3.png"><br>
+  
+DHCP server is works. Сheck the status of the dhcp server and see how the status of issuing a free ip-address.
+```
+  sudo systemctl status dnsmasq
+```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/dhcp_work.png"><br>
+  
+4. Using existed network for three VMs (from p.1) install and configure DNS server on VM1. <br>
+To configure the DNS server, you need to add such lines to the /etc/dnsmasq.conf file:
+```
+  port=53
   listen-address=192.168.1.1
   server=192.168.1.1
   no-hosts
@@ -84,3 +110,17 @@ For configure DHCP on VM1 used DNSMASQ. <br>
   address=/VM2/192.168.1.42
   address=/VM3/192.168.1.26
 ```
+  DNS uses port 53. The listen-address the option is used to set the IP address, where dnsmasq will listen on. DNS server is 192.168.1.1. <br>
+  By default, dnsmasq uses the / etc / hosts file to map hostnames to IP addresses, but this can also be changed. If you do not want to use / etc / hosts, you can specify this with the option "no-hosts".devops.local - this is the domain name. 8.8.8.8 - alternative DNS-address.Also add "no-resolv" so dnsmasq does not needlessly read /etc/resolv.conf which only contains the localhost addresses of itself. address=/VM1/192.168.1.1 - this is a type A record. <br>
+  
+<img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/conf_dns.png"><br>
+  
+5. Check VM2 and VM3 for gaining access to DNS server (naming services).
+To check the access to the DNS server we use the ping command and the hostname.
+```
+  ping VM1 -c 4
+  ping VM2 -c 4
+  ping google.com -c 4
+ ```
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/ping_vm1_google_5.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m6/Task6.2/IMG/ping_vm2_google_5.png"><br>
