@@ -1,0 +1,84 @@
+Cron job started at 12/28/2021 03:42:12 PM
+/home/devops/Backup does not exist!
+Trying to create backup directory.
+Backup directory created!
+/home/devops/TMP does not exist!
+Trying to create temp folder.
+Temp folder created!
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_42.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:42:12 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:44:14 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_44.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:44:14 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:48:01 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_48.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:48:01 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:49:01 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_49.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:49:01 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:50:01 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_50.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:50:01 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:51:01 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_51.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:51:01 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:52:01 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_52.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:52:01 PM
+----------------------------------------------------------------------
+Cron job started at 12/28/2021 03:53:01 PM
+Current directory /home/devops/Backup
+Current directory /home/devops/TMP
+Change detected in this folder.
+Copy the content to a temporary folder
+Backing up /home/devops/Task7.1 to /home/devops/Backup/Backup-2021_12_28_15_53.tgz
+Backup finished
+
+Cron job exiting at 12/28/2021 03:53:01 PM
+----------------------------------------------------------------------
