@@ -1,5 +1,5 @@
 <h2 align="center"> 
-  <img alt="Linux administration" src="https://d3mxt5v3yxgcsr.cloudfront.net/courses/2352/course_2352_image.png?v=1639360962" width="500"> 
+  <img alt="Linux administration" src="https://d3mxt5v3yxgcsr.cloudfront.net/courses/2352/course_2352_image.png?v=1639360962" width="350"> 
 </h2>
 <h2 align="center"> Linux administration with bash </h2>
 
