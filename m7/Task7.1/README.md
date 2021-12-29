@@ -11,6 +11,7 @@
   - The --all key displays the IP addresses and symbolic names of all hosts in the current subnet. <br>
   - The --target key displays a list of open system TCP ports. <br>
 The code that performs the functionality of each of the subtasks must be placed in a separate function. <br>
+	
 ```
 #!/bin/bash
 
@@ -59,6 +60,7 @@ then
 fi
 ```
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/result_A.png"><br>
+	
 </details>
 
 <details><summary>Part B</summary><br>
@@ -69,6 +71,7 @@ fi
   - What non-existent pages were clients referred to? <br>
   - What time did site get the most requests? <br>
   - What search bots have accessed the site? (UA + IP) <br>
+	
 ```
 #!/bin/bash
 
@@ -96,6 +99,7 @@ echo "5. The site received the most requests at this time:"
 echo "6. Such search bots visited the site"
 	grep "bot" /home/devops/Task7.1/apache_logs.txt | awk -F\" '{ print $6 }' | sort | uniq -c | head -n 10
 ```
+	
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/result_B.png"><br>
 </details>
 
