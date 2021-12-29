@@ -103,3 +103,109 @@ echo "6. Such search bots visited the site"
   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/result_B.png"><br>
 </details>
 
+<details><summary>Part C</summary><br>
+1. Create a data backup script that takes the following data as parameters: <br> 
+   - Path to the syncing directory. <br>
+   - The path to the directory where the copies of the files will be stored. <br>
+In case of adding new or deleting old files, the script must add a corresponding entry to the log file indicating the time, type of operation and file name. [The command to run the script must be added to crontab with a run frequency of one minute]. <br>
+	
+```
+#!/bin/bash
+####################################
+#                     Backup script.                        #
+####################################
+
+#IFS is needed for bash to recognize spaces
+IFS=$'\n'
+
+# What to backup. 
+backup="/home/devops/Task7.1"
+
+# Where to backup to.
+dest="/home/devops/Backup"
+
+#Temp folder
+tmp="/home/devops/TMP"
+
+# Start logging
+LOGFILE="/home/devops/Task7.1/backup.log"
+echo -e "Cron job started at $(date +"%m/%d/%Y %r")\r" >> $LOGFILE
+
+# Check if $dest folder for backup exitsts
+if [ -d "$dest" ]
+then
+    echo -e "Current directory $dest\r" >> $LOGFILE
+else
+    echo -e "$dest does not exist!\r" >> $LOGFILE
+    echo -e "Trying to create backup directory." >> $LOGFILE
+    mkdir /home/devops/Backup
+    echo -e "Backup directory created!" >> $LOGFILE
+
+fi
+
+# Check if $tmp folder exitsts
+if [ -d "$tmp" ]
+then
+    echo -e "Current directory $tmp\r" >> $LOGFILE
+else
+    echo -e "$tmp does not exist!\r" >> $LOGFILE
+    echo -e "Trying to create temp folder." >> $LOGFILE
+    mkdir /home/devops/TMP
+    echo -e "Temp folder created!" >> $LOGFILE
+
+fi
+
+#Check change of backup folder
+DIFF=$(diff $backup $tmp)
+if [ "$DIFF" != "" ]
+then
+    echo "$day"
+    echo "Change detected in this folder." >> $LOGFILE
+    diff -r -q $backup $tmp/
+
+# Find and remove old files.
+    find $dest -type f -name "*Backup*" -print0 | xargs -0 rm -rf
+   
+# Find and print modification file
+    find $dest -type f -mmin -1  -print0
+
+    echo "Copy the content to a temporary folder" >> $LOGFILE
+    cp -r /home/devops/Task7.1/* /home/devops/TMP
+else
+    echo "$day"
+    echo "Change is absent." >> $LOGFILE
+fi
+
+# Create archive filename.
+day=$(date +%Y_%m_%d_%H_%M)
+backname="Backup"
+
+archive_file="$backname-$day.tgz"
+
+# Print start status message.
+echo "Backing up $backup to $dest/$archive_file" >> $LOGFILE
+date
+echo
+
+# Backup the files using tar.
+tar -czf $dest/$archive_file $backup
+
+# Print end status message.
+echo
+echo "Backup finished" >> $LOGFILE
+date
+
+# Long listing of files in $dest to check file sizes.
+ls -lh $dest
+
+# Finish logging
+echo -e "\r" >> $LOGFILE
+echo -e "Cron job exiting at $(date +"%m/%d/%Y %r")\r" >> $LOGFILE
+echo -e "----------------------------------------------------------------------\r" >> $LOGFILE
+```
+
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/backup_log_C.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/cron1.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/cron2.png"><br>
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m7/Task7.1/IMG/cron_work.png"><br>
+</details>
