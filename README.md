@@ -17,9 +17,8 @@ Also write UnitTests for these functions. <br>
   -solv_square ( a, b, c) -> roots 
   -square_print (a, b, c, roots) - displays the result. <br>
   
-```
-  #Importing the library math
-import math
+```                             
+import math                                                              # Importing the library math
 
 def validate_param():                                                    # function validate_param without parameters
     attem = 3                                                            # declare a variable and assign the value 3
@@ -75,6 +74,51 @@ def main():                                                              # funct
 if __name__ == "__main__":                                               # all lines in the if __name__ == '__main__' block are not absorbed during import.
     main()                                                               # function main call without arguments
 ```
+  </details>
+  
+<details><summary>UnitTest script</summary><br>
+On the function: discriminant, roots and solv_square write a UnitTest script: <br>
+  
+```
+  import unittest                                                                                                     
+import solv_square_equation                                                                                         
+
+class TestSolver(unittest.TestCase):                                                                                
+
+    # The discriminant is less than zero and has no roots
+    def test_discriminant_0(self):                                                                                  
+        self.assertEqual(solv_square_equation.discriminant(2, 3, 5), -31)
+    
+    def test_solv_square_0(self):
+        self.assertEqual(solv_square_equation.solv_square(2, 3, 5), (None))
+
+    def test_roots_0(self):
+        self.assertEqual(solv_square_equation.roots(-31, 2, 3, 5), (None))
+    
+    # Discriminant equal to zero and has one root
+    def test_discriminant_1(self):
+        self.assertEqual(solv_square_equation.discriminant(16, -8, 1), 0)
+    
+    def test_solv_square_1(self):
+        self.assertEqual(solv_square_equation.solv_square(16, -8, 1), 0.25)
+
+    def test_roots_1(self):
+        self.assertEqual(solv_square_equation.roots(0, 16, -8, 1), 0.25)
+
+    # The discriminant is greater than zero and has two roots
+    def test_discriminant_2(self):
+        self.assertEqual(solv_square_equation.discriminant(-4, -1, 10), 161)
+    
+    def test_solv_square_2(self):
+        self.assertEqual( solv_square_equation.solv_square(-4, -1, 10), (-1.71107219255619, 1.46107219255619))
+
+    def test_roots_2(self):
+        self.assertEqual( solv_square_equation.roots(161, -4, -1, 10), (-1.71107219255619, 1.46107219255619))
+  
+if __name__ == "__main__":
+    unittest.main()
+```
+  </description>
   
 
   
