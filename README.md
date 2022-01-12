@@ -10,12 +10,12 @@
 In the script, implement several functions that decompose the problem of solving a quadratic equation.Parameters must be passed to these functions. 
 Also write UnitTests for these functions. <br> 
   The main script solv_square_equation.py should have the following functions:<br>
-  -main () 
-  -validate_param (int) - checks that a number is entered, repeats the input 3 times if not a number (use exception) 
-  -discriminant (a, b, c) 
-  -roots (d, a, b, c) 
-  -solv_square ( a, b, c) -> roots 
-  -square_print (a, b, c, roots) - displays the result. <br>
+    -main () <br>
+    -validate_param (int) - checks that a number is entered, repeats the input 3 times if not a number (use exception) <br>
+    -discriminant (a, b, c) <br>
+    -roots (d, a, b, c) <br>
+    -solv_square ( a, b, c) -> roots <br>
+    -square_print (a, b, c, roots) - displays the result. <br>
   
 ```                             
 import math                                                              # Importing the library math
