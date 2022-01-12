@@ -74,7 +74,12 @@ def main():                                                              # funct
 if __name__ == "__main__":                                               # all lines in the if __name__ == '__main__' block are not absorbed during import.
     main()                                                               # function main call without arguments
 ```
-  </details>
+
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m8/IMG/no_roots.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m8/IMG/one_root.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m8/IMG/two_roots.png"><br>
+  <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m8/IMG/error_input.png"><br>
+</details>
   
 <details><summary>UnitTest script</summary><br>
 On the function: discriminant, roots and solv_square write a UnitTest script: <br>
@@ -118,6 +123,8 @@ class TestSolver(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 ```
+  
+   <img alt="" src="https://github.com/zinchenko-ihor/DevOps_online_Kyiv_2021Q4/blob/master/m8/IMG/tests.png"><br>
   </description>
   
 
