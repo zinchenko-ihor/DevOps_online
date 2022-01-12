@@ -33,7 +33,6 @@ def roots(d, a, b, c):                                                   # funct
         return x                                                         # return the value of variable х
     else:                                                                # Otherwise, there are no roots in the equation
         print("No roots!")                                               # displaying message
-    
 
 def solv_square(a, b, c) -> roots:                                       # function solv_square with parameters a,b,c 
     d = discriminant(a,b,c)                                              # assign the result of the function discriminant to a variable d
