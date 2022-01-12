@@ -82,7 +82,7 @@ if __name__ == "__main__":                                               # all l
 </details>
   
 <details><summary>UnitTest script</summary><br>
-On the function: discriminant, roots and solv_square write a UnitTest script: <br>
+On the function - discriminant, roots and solv_square write a UnitTest script: <br>
   
 ```
 import unittest                                                                                                     
