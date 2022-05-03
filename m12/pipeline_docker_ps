@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('test') {
+            steps {
+               sh 'ssh ubuntu@172.31.11.214 \'docker ps -a\''
+            }
+        }
+    }
+}

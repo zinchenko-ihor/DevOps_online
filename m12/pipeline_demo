@@ -1,0 +1,41 @@
+node {
+    stage("Git Checkout") {
+        git branch: 'main', credentialsId: 'jenkins_git', url: 'https://github.com/zinchenko-ihor/jenkins_test.git'
+    }
+    
+    stage("Sending a Dockerfile to Ansible over ssh"){
+        sshagent(['jenkins']) {
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90'
+          sh 'scp /var/lib/jenkins/workspace/pipeline_demo/* ubuntu@172.31.31.90:/home/ubuntu'
+      }
+    }
+    
+    stage("Docker image building") {
+        sshagent(['jenkins']) {
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 cd /home/ubuntu/'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 docker image build -t $JOB_NAME:v1.$BUILD_ID .'
+      }
+        
+    }
+    
+    stage("Docker image tagging") {
+        sshagent(['jenkins']) {
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 cd /home/ubuntu/'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 docker image tag $JOB_NAME:v1.$BUILD_ID jumper93/$JOB_NAME:v1.$BUILD_ID'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 docker image tag $JOB_NAME:v1.$BUILD_ID jumper93/$JOB_NAME:latest'
+      }
+        
+    }
+    
+    stage("Push Docker image to Docker_Hub") {
+        sshagent(['jenkins']) {
+            withCredentials([string(credentialsId: 'dockerhub_passwd1', variable: 'dockerhub_passwd1')]) {
+                   sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 docker login -u jumper93 -p ${dockerhub_passwd1}"
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 cd /home/ubuntu/'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 docker image push jumper93/$JOB_NAME:v1.$BUILD_ID'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90 docker image push jumper93/$JOB_NAME:latest'
+            }
+      }
+        
+    }
+}

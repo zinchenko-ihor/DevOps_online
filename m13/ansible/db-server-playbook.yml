@@ -1,0 +1,80 @@
+---   
+- hosts: mysql   
+  become: true
+  vars_files:
+    - vars.yml 
+  
+  tasks:   
+    - name: install mysql     
+      apt: name=mysql-server update_cache=yes cache_valid_time=3600 state=present
+    
+    - name: Install required system packages
+      apt: name=python3-pip state=latest update_cache=yes
+    
+    - name: Make sure pymysql is present
+      become: true # needed if the other tasks are not played as root
+      pip:
+        name: pymysql
+        state: present
+    
+    - name: start up the mysql service  
+      shell: "service mysql start"  
+
+    - name: ensure mysql is enabled to run on startup  
+      service: name=mysql state=started enabled=true
+
+#Reset MySQL root password
+    - name: Stop MySQL
+      systemd:
+        name: mysql
+        state: stopped
+
+    - name: set environment variables
+      shell: systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+ 
+    - name: Start MySQL
+      systemd:
+        name: mysql
+        state: started
+    - name: Exchange root PW
+      command: mysql -u root --execute="ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '{{ mysql_root_password }}';"  
+   
+#    - name: Reset root PW
+ #     command: mysql -u root --execute="UPDATE mysql.user SET authentication_string=PASSWORD('{{ mysql_root_password }}') WHERE User = 'root' AND Host = 'localhost';"
+      
+    - name: Flush MySQL privileges
+      command: mysql -u root --execute="FLUSH PRIVILEGES"
+
+    - name: Stop MySQL
+      systemd:
+        name: mysql
+        state: stopped
+
+    - name: Unset environment variables
+      shell: systemctl unset-environment MYSQLD_OPTS
+
+    - name: Start MySQL
+      systemd:
+        name: mysql
+        state: started
+    
+    - name: update mysql root password for all root accounts  
+      mysql_user:  
+        name: root  
+        host: "{{ item }}"  
+        password: "{{ mysql_root_password }}"  
+        login_user: root  
+        login_password: "{{ mysql_root_password }}"  
+        check_implicit_admin: yes  
+        priv: "*.*:ALL,GRANT"  
+      with_items:  
+      - "{{ ansible_hostname }}"  
+      
+    - name: create a new database  
+      mysql_db: name=testdb state=present login_user=root login_password="{{ mysql_root_password }}"  
+
+    - name: add sample data to database  
+      copy: src=dump.sql dest=/tmp/dump.sql  
+
+    - name: insert sample data into database  
+      mysql_db: name=testdb state=import target=/tmp/dump.sql login_user=root login_password="{{ mysql_root_password }}"
