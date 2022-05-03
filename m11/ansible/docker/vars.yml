@@ -1,0 +1,7 @@
+---
+create_containers: 1
+default_container_name: docker
+default_container_image: ubuntu
+default_container_command: sleep 1d
+
+php_modules: [ 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'php-soap', 'php-intl', 'php-zip' ]

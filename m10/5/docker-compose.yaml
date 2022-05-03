@@ -1,0 +1,40 @@
+version: "3.3"
+
+services:
+
+    main:
+      build: ./
+      ports:
+         - "80:80"
+    web1:
+      image: docker.io/library/docker_main
+      ports:
+         - "85:80"
+    web2:
+      image: docker.io/library/docker_main
+      ports:
+         - "90:80"
+    web3:
+      image: docker.io/library/docker_main
+      ports:
+         - "95:80"
+    web4:
+      image: docker.io/library/docker_main
+      ports:
+         - "100:80"
+    java_app:
+      build: java/
+      ports:
+         - "88:80"
+
+    db:
+      image: mariadb
+      restart: always
+      environment:
+         MYSQL_ROOT_PASSWORD: 123456
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+         - 6080:8080

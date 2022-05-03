@@ -1,0 +1,101 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+   - name: Start docker services
+      service:
+        name: docker
+        state: started
+        enabled: yes
+    
+    # Download docker images 
+    - name: Download docker image Apache
+      docker_image:
+        name: httpd
+        tag: latest
+        source: pull
+    
+    - name: Download docker image PHP 
+      docker_image:
+        name: php
+        tag: latest
+        source: pull
+    
+    - name: Download docker image MySQL
+      docker_image:
+        name: mysql
+        tag: latest
+        source: pull
+    
+    - name: Download docker image Adminer
+      docker_image:
+        name: adminer
+        tag: latest
+        source: pull
+      
+    #Create docker containers
+    - name: Launch Apache container
+      docker_container:
+        name: apache2
+        image: httpd
+        state: started
+        exposed_ports:
+        - "80"
+        ports:
+        - "88:80"
+    
+    - name: Launch PHP container
+      docker_container:
+        name: php
+        image: php
+        state: started
+        command: "install {{ php_modules }}"
+        exposed_ports:
+        - "80"
+        ports:
+        - "8000:80" 
+    
+    - name: Launch MySQL container
+      docker_container:
+        name: mysql
+        image: mysql
+        state: started
+        env: MYSQL_ROOT_PASSWORD="{{ MYSQL_ROOT_PASSWORD }}"
+    
+    - name: Launch Adminer container
+      docker_container:
+        name: adminer
+        image: adminer
+        state: started
+        exposed_ports:
+        - "8080"
+        ports:
+        - "8080:8080"
+

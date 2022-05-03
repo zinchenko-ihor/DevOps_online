@@ -1,0 +1,73 @@
+name: CI-CD-to-AWS
+env:
+ EB_PACKAGE_S3_BACKET_NAME : "zinchenko-ihor"
+ EB_APPLICATION_NAME       : "zinchenko-ihor"
+ EB_ENVIRONMENT_NAME       : "Zinchenkoihor-env"
+ DEPLOY_PACKAGE_NAME       : "docker {{ github.sha }}"
+ AWS_REGION_NAME           : "eu-central-1"
+ LOGIN                     : ${{ secrets.DOCKER_LOGIN }}
+ NAME                      : ${{ secrets.DOCKER_NAME }}
+on:
+ 
+  push:
+    branches: [ master ]
+   
+jobs:
+  
+  my_ci_part:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone our repository
+        uses: actions/checkout@v2
+      
+      - name: Configure AWS Credential
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id     : ${{ secrets.MY_AWS_ACCESS_KEY }}
+          aws-secret-access-key : ${{ secrets.MY_AWS_SECRET_KEY }}
+          aws-region            : ${{ env.AWS_REGION_NAME }} 
+          
+      - name: Login to docker.io
+        run:  echo ${{ secrets.DOCKER_PWD }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
+      - uses: actions/checkout@master
+      - name: Build image
+        run: docker build -t $LOGIN/$NAME:${GITHUB_REF:11} -f Dockerfile .
+      - name: Save image docker 
+        run: docker save image | gzip > image.tar.gz      
+      - name: Copy image to S3 Bucket
+        run: aws s3 cp image.tar.gz s3://${{ env.EB_PACKAGE_S3_BACKET_NAME }}
+      - name: Push image to docker.io
+        run: docker push $LOGIN/$NAME:${GITHUB_REF:11}
+
+      - name: Message
+        run : echo "CI part is complite good"
+        
+  my_cd_part:
+    runs-on: ubuntu-latest
+    needs: [my_ci_part]
+    
+    steps:
+      - name: Git clone our repository
+        uses: actions/checkout@v2
+      
+      - name: Configure AWS Credential
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id     : ${{ secrets.MY_AWS_ACCESS_KEY }}
+          aws-secret-access-key : ${{ secrets.MY_AWS_SECRET_KEY }}
+          aws-region            : ${{ env.AWS_REGION_NAME }} 
+      
+      - name: Create new ELasticBeanstalk APP
+        run: |
+          aws elasticbeanstalk create-application-version \
+          --application-name {{ env.EB_APPLICATION_NAME }} \
+          --versison-lable "Ver-${{ github.sha }}" \
+          --source-bandle S3Bucket="${{ env.EB_PACKAGE_S3_BACKET_NAME }}",S3Key="image.tar.gz" 
+         
+      - name: Deploy ELasticBeanstalk APP to AWS
+        run: 
+            aws elasticbeanstalk update-environment \
+            --environment-name ${{ env.EB_ENVIRONMENT_NAME }} \
+            --version-lable "Ver-${{ github.sha }}"
+          

@@ -1,0 +1,17 @@
+---
+create_containers: 1
+default_container_name: docker
+default_container_image: ubuntu
+default_container_command: sleep 1d
+
+php_modules: [ 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'php-soap', 'php-intl', 'php-zip' ]
+
+MYSQL_ROOT_PASSWORD: docker
+MYSQL_DATABASE: wordpress
+MYSQL_USER: wordpress
+MYSQL_PASSWORD: wordpress
+
+WORDPRESS_DB_HOST: mysql:3306
+WORDPRESS_DB_USER: wordpress
+WORDPRESS_DB_PASSWORD: wordpress
+WORDPRESS_DB_NAME: wordpress

@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+
+    main:
+      build: ./
+      image: docker.io/library/docker_main
+      ports:
+        - "80-90:80"
+      depends_on:
+        - "db"
+        - "adminer"
+
+    java_app:
+      build: java/
+      ports:
+         - "99:80"
+      depends_on:
+        - "db"
+        - "adminer"
+
+    db:
+      image: mariadb:${VERSION}
+      restart: always
+      environment:
+         MYSQL_ROOT_PASSWORD: "${DB_PASS}"
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+         - "6080:8080"
