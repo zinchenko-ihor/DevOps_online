@@ -1,5 +1,5 @@
 <h4 align="center"> 
-  <img alt="DATABASES" src="https://commons.bmstu.wiki/images/b/be/Linux-3_6.png" width="500"> 
+  <img alt="DATABASES" src="https://aindien.com/media/posts/40/Linux-Essentials-0.png" width="500"> 
 </h4>
 <h2 align="center"> Linux Essentials </h2>
 
